@@ -61,3 +61,103 @@
 		</div> <!-- /#page-wrapper -->
 	</body>
 </html>
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Title = H1 | H2 -->
+  <title>Sogol Maghzian | Home</title>
+
+  <!-- Embedded CSS (in head) -->
+  <style>
+    :root {
+      --ink: #0f172a;
+      --muted: #475569;
+      --accent: #2563eb;
+      --bg: #f8fafc;
+      --card: #ffffff;
+    }
+
+    html, body { margin: 0; padding: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; color: var(--ink); background: var(--bg); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    #page-wrapper { min-height: 100dvh; display: grid; grid-template-rows: auto 1fr auto; }
+    header, main, footer { width: min(100%, 960px); margin-inline: auto; padding: 1.25rem; }
+
+    header { background: var(--card); border-bottom: 1px solid #e5e7eb; }
+    header h1 { margin: 0; font-size: clamp(1.5rem, 2.6vw, 2rem); }
+    header nav { margin-top: .5rem; }
+    header nav a { margin-right: 1rem; font-weight: 600; }
+
+    main { padding-top: 2rem; padding-bottom: 2rem; }
+    main h2 { margin-top: 0; font-size: clamp(1.3rem, 2.2vw, 1.6rem); color: var(--muted); }
+    main p { line-height: 1.6; max-width: 70ch; }
+
+    footer { background: var(--card); border-top: 1px solid #e5e7eb; font-size: .95rem; }
+    .footer-nav { display: flex; flex-wrap: wrap; gap: .75rem 1rem; margin-bottom: .5rem; }
+    .tiny { color: var(--muted); font-size: .9rem; }
+
+    /* Optional: visually hidden text for accessibility helpers */
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+  </style>
+</head>
+
+<body>
+  <div id="page-wrapper">
+    <header role="banner">
+      <h1>Sogol Maghzian</h1>
+      <nav aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/itis3135/">ITIS 3135</a>
+        <a href="https://github.com/Sogol2/smaghzia.github.io">GitHub Repo</a>
+        <a href="https://webpages.charlotte.edu/smaghzia/">UNCC Webspace</a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <h2>Home</h2>
+      <p>
+        Welcome to my course and portfolio hub. I’m a UNC Charlotte student building my skills in web development,
+        data visualization, and cloud concepts. This site will host my projects, labs, and weekly reflections.
+      </p>
+      <p>
+        Use the navigation to find my ITIS&nbsp;3135 work, view this repository on GitHub, or visit my UNCC webspace.
+        I’ll keep updating this page as I learn new tools and publish assignments.
+      </p>
+    </main>
+
+    <footer role="contentinfo">
+      <div class="footer-nav" aria-label="Footer Navigation">
+        <a href="/">Home</a>
+        <a href="/itis3135/">ITIS 3135</a>
+        <a href="https://github.com/Sogol2/smaghzia.github.io">GitHub Repo</a>
+        <a href="https://webpages.charlotte.edu/smaghzia/">UNCC Webspace</a>
+        <!-- Accumulus validator link (opens with current page URL) -->
+        <a href="#" id="accumulus-link">Validate (Accumulus)</a>
+      </div>
+      <div class="tiny">© <span id="year"></span> Sogol Maghzian. All rights reserved.</div>
+    </footer>
+  </div>
+
+  <!-- Small helper script for year + validator link -->
+  <script>
+    // Current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Build the Accumulus validator URL for the current page
+    (function () {
+      const current = location.href;
+      const link = document.getElementById('accumulus-link');
+      // If your instructor provided a different validator base URL, replace below:
+      const base = "https://validator.accumulus.cloud/?url=";
+      link.href = base + encodeURIComponent(current);
+      link.target = "_blank";
+      link.rel = "noopener";
+    }());
+  </script>
+</body>
+</html>
+
