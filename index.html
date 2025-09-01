@@ -83,27 +83,8 @@
       --card: #ffffff;      /* white card/sections */
     }
   
-    /* Do NOT constrain html/body size; this can hide fixed overlays (Accumulus cloud) */
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Roboto', sans-serif;  /* body font */
-      color: var(--ink);               /* text color */
-      background: var(--bg);           /* background color */
-    }
-  
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
-  
-    /* Put width/centering on the page wrapper instead */
-    #page-wrapper {
-      width: 90%;
-      max-width: 900px;                /* between 600–1000px */
-      margin: 0 auto;                  /* center horizontally */
-      min-height: 100dvh;
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-    }
   
     header, main, footer {
       width: 100%;
@@ -162,6 +143,26 @@
       position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
       overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;
     }
+
+	/* --- Accumulus cloud compatibility overrides --- */
+#page-wrapper {
+  width: 90%;
+  max-width: 900px;    /* between 600–1000px */
+  margin: 0 auto;      /* center horizontally */
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+html, body {
+  margin: 0;           /* not 0 auto */
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  /* no width / max-width here */
+}
+
   </style>
 
   <!-- Accumulus (required) — keep this as the LAST line in <head> -->
@@ -196,7 +197,7 @@
         <a href="itis3135/">ITIS3135</a> ~
         <a href="https://github.com/Sogol2" target="_blank" rel="noopener">GitHub.com</a> ~
         <a href="https://webpages.charlotte.edu/smaghzia/" target="_blank" rel="noopener">CLT Web</a> ~
-        <a href="https://smaghzia.github.io/" target="_blank" rel="noopener">GitHub.io</a> ~
+        <a href="https://github.com/Sogol2/smaghzia.github.io" target="_blank" rel="noopener">GitHub.io</a> ~
         <a href="https://www.linkedin.com/in/sogol-maghzian/" target="_blank" rel="noopener">LinkedIn</a> ~
         <a id="accumulus-link" href="#" aria-label="Validate this page with Accumulus">Validate (Accumulus)</a>
       </nav>
