@@ -71,117 +71,101 @@
   <title>Sogol Maghzian | Home</title>
 
   <!-- Embedded CSS (in head) -->
-<style>
-	/* Import Google Fonts for body + headings */
-	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&family=Playfair+Display:wght@600&display=swap');
+  <style>
+    /* Import Google Fonts for body + headings */
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&family=Playfair+Display:wght@600&display=swap');
   
-	:root {
-	  --ink: #1e293b;       /* dark navy text */
-	  --muted: #475569;     /* muted gray */
-	  --accent: #2563eb;    /* accent blue */
-	  --bg: #f9fafb;        /* light gray background */
-	  --card: #ffffff;      /* white card/sections */
-	}
+    :root {
+      --ink: #1e293b;       /* dark navy text */
+      --muted: #475569;     /* muted gray */
+      --accent: #2563eb;    /* accent blue */
+      --bg: #f9fafb;        /* light gray background */
+      --card: #ffffff;      /* white card/sections */
+    }
   
-	/* Apply margins, width, fonts, colors */
-	html, body {
-	  margin: 0 auto;                  /* center horizontally */
-	  padding: 0;
-	  font-family: 'Roboto', sans-serif;  /* body font */
-	  color: var(--ink);               /* text color */
-	  background: var(--bg);           /* background color */
-	  width: 90%;                      /* responsive width */
-	  max-width: 900px;                /* between 600–1000px */
-	}
+    /* Do NOT constrain html/body size; this can hide fixed overlays (Accumulus cloud) */
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;  /* body font */
+      color: var(--ink);               /* text color */
+      background: var(--bg);           /* background color */
+    }
   
-	a { color: var(--accent); text-decoration: none; }
-	a:hover { text-decoration: underline; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
   
-	#page-wrapper {
-	  min-height: 100dvh;
-	  display: grid;
-	  grid-template-rows: auto 1fr auto;
-	}
+    /* Put width/centering on the page wrapper instead */
+    #page-wrapper {
+      width: 90%;
+      max-width: 900px;                /* between 600–1000px */
+      margin: 0 auto;                  /* center horizontally */
+      min-height: 100dvh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
   
-	header, main, footer {
-	  width: 100%;
-	  margin-inline: auto;
-	  padding: 1.25rem;
-	}
+    header, main, footer {
+      width: 100%;
+      margin-inline: auto;
+      padding: 1.25rem;
+    }
   
-	header {
-	  background: var(--card);
-	  border-bottom: 1px solid #e5e7eb;
-	}
+    header {
+      background: var(--card);
+      border-bottom: 1px solid #e5e7eb;
+    }
   
-	header h1 {
-	  margin: 0;
-	  font-family: 'Playfair Display', serif; /* heading font */
-	  font-size: clamp(1.5rem, 2.6vw, 2rem);
-	  color: var(--accent);                   /* heading color */
-	}
+    header h1 {
+      margin: 0;
+      font-family: 'Playfair Display', serif; /* heading font */
+      font-size: clamp(1.5rem, 2.6vw, 2rem);
+      color: var(--accent);                   /* heading color */
+    }
   
-	header nav {
-	  margin-top: .5rem;
-	}
+    header nav { margin-top: .5rem; }
+    header nav a { margin-right: 1rem; font-weight: 600; }
   
-	header nav a {
-	  margin-right: 1rem;
-	  font-weight: 600;
-	}
+    main { padding-top: 2rem; padding-bottom: 2rem; }
   
-	main {
-	  padding-top: 2rem;
-	  padding-bottom: 2rem;
-	}
+    main h2 {
+      margin-top: 0;
+      font-family: 'Playfair Display', serif; /* heading font */
+      font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+      color: var(--accent);
+    }
   
-	main h2 {
-	  margin-top: 0;
-	  font-family: 'Playfair Display', serif; /* heading font */
-	  font-size: clamp(1.3rem, 2.2vw, 1.6rem);
-	  color: var(--accent);
-	}
+    main p {
+      line-height: 1.6;
+      max-width: 70ch;
+      margin-bottom: 1rem;
+      color: var(--muted);
+    }
   
-	main p {
-	  line-height: 1.6;
-	  max-width: 70ch;
-	  margin-bottom: 1rem;
-	  color: var(--muted);
-	}
+    footer {
+      background: var(--card);
+      border-top: 1px solid #e5e7eb;
+      font-size: .95rem;
+    }
   
-	footer {
-	  background: var(--card);
-	  border-top: 1px solid #e5e7eb;
-	  font-size: .95rem;
-	}
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem 1rem;
+      margin-bottom: .5rem;
+    }
   
-	.footer-nav {
-	  display: flex;
-	  flex-wrap: wrap;
-	  gap: .75rem 1rem;
-	  margin-bottom: .5rem;
-	}
+    .tiny { color: var(--muted); font-size: .9rem; }
   
-	.tiny {
-	  color: var(--muted);
-	  font-size: .9rem;
-	}
-  
-	/* Optional: visually hidden text for accessibility helpers */
-	.sr-only {
-	  position: absolute;
-	  width: 1px;
-	  height: 1px;
-	  padding: 0;
-	  margin: -1px;
-	  overflow: hidden;
-	  clip: rect(0, 0, 0, 0);
-	  border: 0;
-	}
+    /* Optional: visually hidden text for accessibility helpers */
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;
+    }
   </style>
 
-<script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
-  
+  <!-- Accumulus (required) — keep this as the LAST line in <head> -->
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -189,12 +173,11 @@
     <header role="banner">
       <h1>Sogol Maghzian</h1>
       <nav aria-label="Primary">
-		<a href="./">Home</a>
-		<a href="itis3135/">ITIS 3135</a>
-		<a href="https://github.com/Sogol2">GitHub Repo</a>
-		<a href="https://webpages.charlotte.edu/smaghzia/">UNCC Webspace</a>
-	  </nav>
-	  
+        <a href="./">Home</a>
+        <a href="itis3135/">ITIS 3135</a>
+        <a href="https://github.com/Sogol2" target="_blank" rel="noopener">GitHub Repo</a>
+        <a href="https://webpages.charlotte.edu/smaghzia/" target="_blank" rel="noopener">UNCC Webspace</a>
+      </nav>
     </header>
 
     <main id="main-content">
@@ -209,17 +192,16 @@
     </main>
 
     <footer role="contentinfo">
-		<nav class="footer-nav" aria-label="Footer Navigation">
-		  <a href="itis3135/">ITIS3135</a> ~
-		  <a href="https://github.com/Sogol2">GitHub.com</a> ~
-		  <a href="https://webpages.charlotte.edu/smaghzia/">CLT Web</a> ~
-		  <a href="https://github.com/Sogol2/smaghzia.github.io">GitHub.io</a> ~
-		  <a href="https://www.linkedin.com/in/sogol-maghzian/">LinkedIn</a> ~
-		  <a href="https://validator.accumulus.cloud/?url=https://webpages.charlotte.edu/smaghzia/">Validate (Accumulus)</a>
-		</nav>
-		<div class="tiny">© <span id="year"></span> Sogol Maghzian. All rights reserved.</div>
-	  </footer>
-	  
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <a href="itis3135/">ITIS3135</a> ~
+        <a href="https://github.com/Sogol2" target="_blank" rel="noopener">GitHub.com</a> ~
+        <a href="https://webpages.charlotte.edu/smaghzia/" target="_blank" rel="noopener">CLT Web</a> ~
+        <a href="https://smaghzia.github.io/" target="_blank" rel="noopener">GitHub.io</a> ~
+        <a href="https://www.linkedin.com/in/sogol-maghzian/" target="_blank" rel="noopener">LinkedIn</a> ~
+        <a id="accumulus-link" href="#" aria-label="Validate this page with Accumulus">Validate (Accumulus)</a>
+      </nav>
+      <div class="tiny">© <span id="year"></span> Sogol Maghzian. All rights reserved.</div>
+    </footer>
   </div>
 
   <!-- Small helper script for year + validator link -->
@@ -231,11 +213,12 @@
     (function () {
       const current = location.href;
       const link = document.getElementById('accumulus-link');
-      
       const base = "https://validator.accumulus.cloud/?url=";
-      link.href = base + encodeURIComponent(current);
-      link.target = "_blank";
-      link.rel = "noopener";
+      if (link) {
+        link.href = base + encodeURIComponent(current);
+        link.target = "_blank";
+        link.rel = "noopener";
+      }
     }());
   </script>
 </body>
