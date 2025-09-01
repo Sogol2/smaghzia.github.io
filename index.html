@@ -203,24 +203,5 @@
       <div class="tiny">© <span id="year"></span> Sogol Maghzian. All rights reserved.</div>
     </footer>
   </div>
-
-  <!-- Small helper script for year + validator link -->
-  <script>
-    // Current year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Build the Accumulus validator URL for the current page
-    (function () {
-      const current = location.href;
-      const link = document.getElementById('accumulus-link');
-      const base = "https://validator.accumulus.cloud/?url=";
-      if (link) {
-        link.href = base + encodeURIComponent(current);
-        link.target = "_blank";
-        link.rel = "noopener";
-      }
-    }());
-  </script>
 </body>
 </html>
-
