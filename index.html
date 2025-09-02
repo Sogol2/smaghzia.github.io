@@ -30,7 +30,7 @@
     }
   
     header {
-      background: var(--card);
+      background: var(--card, #ffffff);
       border-bottom: 1px solid #e5e7eb;
     }
   
@@ -38,10 +38,10 @@
       margin: 0;
       font-family: 'Playfair Display', serif; /* heading font */
       font-size: clamp(1.5rem, 2.6vw, 2rem);
-      color: var(--accent);                   /* heading color */
+      color: var(--accent, #2563eb);                   /* heading color */
     }
   
-    header nav { margin-top: .5rem; }
+    header nav { margin-top: 0.5rem; }
     header nav a { margin-right: 1rem; font-weight: 600; }
   
     main { padding-top: 2rem; padding-bottom: 2rem; }
@@ -50,7 +50,7 @@
       margin-top: 0;
       font-family: 'Playfair Display', serif; /* heading font */
       font-size: clamp(1.3rem, 2.2vw, 1.6rem);
-      color: var(--accent);
+      color: var(--accent, #2563eb);
     }
   
     main p {
