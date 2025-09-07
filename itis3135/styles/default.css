@@ -1,0 +1,46 @@
+body{
+    background-color: beige;
+    text-align: center;
+    color:black
+    font-family: monospace;
+
+}
+a    {
+    color:rgb(17, 21, 205);
+    text-decoration: none;
+
+}
+
+a:hover {
+    color: rgb(79, 79, 160);
+    text-decoration: line;
+}
+
+main{
+    text-align: left;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+h2{
+    text-align: center;
+}
+
+.intro-figure {
+    text-align: center;
+    margin: 1.5rem 0;
+  }
+  
+  .intro-figure img {
+    width: 320px;            
+    max-width: 90%;         
+    border-radius: 18px;   
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
+  }
+  
+  .intro-figure figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: #6b4e3d;         
+  }
+  
