@@ -1,9 +1,10 @@
-body{
+body {
     background-color: beige;
     text-align: center;
-    color:black
-   
-}
+    color: black;
+    font-family: monospace;
+  }
+  
 
 a    {
     color:rgb(17, 21, 205);
