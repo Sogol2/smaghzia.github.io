@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MaghzianSM Studio — Design & Web Development</title>
+
+ <!-- Color scheme from Coolors: https://coolors.co/dfb899-cc94ac-7eaaa6-698996-407076 -->
+<style>
+    /* ====== base palette (update to match your Coolors) ====== */
+    :root{
+     --paper:#DFB899; /* warm sand (page background) */
+     --rose:#CC94AC;  /* accent */
+     --sage:#7EAAA6;  /* secondary accent */
+     --teal:#698996;  /* headings / UI */
+     --deep:#407076;  /* main text */
+     --white:#ffffff;
+    }
+
+
+    /* ====== reset-ish ====== */
+    * { box-sizing: border-box; }
+    body{
+      margin:0;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      line-height:1.6;
+      color:var(--ink);
+      background:var(--paper);
+    }
+    img{ display:block; }
+
+    /* ====== layout ====== */
+    .wrap{
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 24px;
+      background: var(--white);
+      box-shadow: 0 8px 24px rgba(0,0,0,.06);
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      border-bottom: 4px solid var(--accent);
+      padding-bottom:16px;
+      margin-bottom:24px;
+    }
+    header h1{
+      margin:0;
+      font-size: clamp(1.4rem, 2.4vw + 1rem, 2.2rem);
+      letter-spacing:.3px;
+      color:var(--muted);
+    }
+
+    main h2{
+      margin-top:0;
+      color:var(--brand);
+      font-size: clamp(1.1rem, 1.8vw + .8rem, 1.6rem);
+    }
+
+    /* ====== non-standard bullets ====== */
+    /* uses a custom diamond marker instead of disc/square */
+    ul.services{
+      padding-left: 1.25rem; /* keep some indent for markers */
+    }
+    ul.services li{
+      margin: .4rem 0;
+    }
+    ul.services li::marker{
+      content: "◆  ";
+      color: var(--accent);
+      font-size: 1.1em;
+    }
+
+    /* ====== contact block ====== */
+    .contact{
+      background: linear-gradient(0deg,#ffffff, #f9fbfc);
+      border: 1px solid rgba(0,0,0,.08);
+      border-left: 4px solid var(--accent);
+      padding: 16px 18px;
+      border-radius: 8px;
+      width: fit-content;
+      margin-top: 12px;
+    }
+    .contact a{
+      color: var(--brand);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+    }
+
+    footer{
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px dashed rgba(0,0,0,.2);
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      font-size:.95rem;
+    }
+    .tagline{
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* accessibility helpers */
+    a:focus-visible, button:focus-visible{
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <!-- resized image with explicit dimensions for layout stability -->
+      <img src="logo-sm.jpg"
+        alt="SM logo for MaghzianSM Studio"
+        width="80" height="80" />
+
+      <h1>MaghzianSM Studio</h1>
+      <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+    </header>
+
+    <main>
+      <h2>MaghzianSM Studio — Services</h2>
+
+      <p>
+        MaghzianSM Studio is a Charlotte-based design & development firm focused on
+        clean, accessible, and performance-minded web experiences. I combine
+        thoughtful UI design with solid front-end engineering so small businesses
+        and creators can look professional, load fast, and convert better.
+      </p>
+
+      <ul class="services">
+        <li>Custom, responsive sites built with modern HTML/CSS/JS</li>
+        <li>Brand-aligned color, type, and layout systems</li>
+        <li>Accessibility-first approach (WCAG contrast & keyboard support)</li>
+        <li>Performance tuning for fast page loads and SEO foundations</li>
+        <li>CMS setup or static site handoff with clear docs</li>
+        <li>Design refreshes that keep your personality and improve UX</li>
+        <li>Analytics setup and simple dashboards for non-technical owners</li>
+        <li>Ongoing care plans: updates, backups, and small enhancements</li>
+      </ul>
+
+      <p>
+        I love partnering with clients who value clarity and craft. Tell me your
+        goals and I’ll propose a simple roadmap with quick wins first, then
+        high-impact improvements. Let’s make a site you’re proud to share.
+      </p>
+
+      <div class="contact" role="complementary" aria-label="Contact information">
+        <address>
+          <strong>MaghzianSM Studio</strong><br>
+          9201 city blvd, Suite 202<br>
+          Charlotte, NC 28223<br>
+          <a href="mailto:hello@maghziansm.com">hello@maghziansm.com</a><br>
+          <a href="tel:+17040001234">(704) 555-1234</a>
+        </address>
+      </div>
+    </main>
+
+    <footer>
+      <span class="tagline">“Design with intention. Build with precision.”</span>
+      <span>© 2025 MaghzianSM Studio</span>
+
+      
