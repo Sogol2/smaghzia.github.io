@@ -45,11 +45,12 @@
   .lede { font-size: 1.1rem; color: var(--muted); }
   .grid {
     display: grid;
-    grid-template-columns: 1fr;      /* 1 column on small screens */
-    grid-row-gap: 16px;              /* use row/column gaps instead of gap */
+    grid-template-columns: 1fr;      
+    grid-row-gap: 16px;              
     grid-column-gap: 16px;
-    margin-top: 16px;                /* px to keep the validator happy */
+    margin-top: 16px;
   }
+  
   .card {
     padding: 1rem;
     border-radius: 16px;
