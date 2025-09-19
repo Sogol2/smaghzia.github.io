@@ -45,11 +45,11 @@
   .lede { font-size: 1.1rem; color: #5b5e6a; }
   .grid {
     display: grid;
-    grid-template-columns: 1fr;      
-    grid-row-gap: 16px;              
+    grid-template-columns: 1fr;
+    grid-row-gap: 16px;
     grid-column-gap: 16px;
-    margin-top: 16px;
   }
+  
   
   .card {
     padding: 1rem;
