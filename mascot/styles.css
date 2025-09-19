@@ -16,7 +16,7 @@
   }
   .wrapper { max-width: 920px; margin-inline: auto; padding: 1.5rem; }
   header, footer {
-    background: var(--card);
+    background: #ffffff;
     border: 1px solid #eee3d6;
     border-radius: 18px;
     box-shadow: 0 6px 24px rgba(0,0,0,.06);
@@ -35,14 +35,14 @@
   nav a:hover { outline: 2px solid var(--primary); outline-offset: 2px; }
   main {
     margin-top: 1rem;
-    background: var(--card);
+    background: #ffffff;
     border: 1px solid #eee3d6;
     border-radius: 18px;
     padding: 1.25rem;
     box-shadow: 0 6px 24px rgba(0,0,0,.04);
   }
   h2 { color: #203647; margin-top: 0; }
-  .lede { font-size: 1.1rem; color: var(--muted); }
+  .lede { font-size: 1.1rem; color: #5b5e6a; }
   .grid {
     display: grid;
     grid-template-columns: 1fr;      
@@ -61,7 +61,7 @@
     display: inline-block;
     padding: .25rem .5rem;
     border-radius: 999px;
-    background: var(--primary);
+    background: #00a6a6;
     color: white;
     font-size: .8rem;
   }
