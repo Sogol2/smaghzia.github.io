@@ -43,11 +43,7 @@
   }
   h2 { color: #203647; margin-top: 0; }
   .lede { font-size: 1.1rem; color: #5b5e6a; }
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-  
+
   
   .card {
     padding: 1rem;
