@@ -44,4 +44,32 @@ h2{
     font-size: 0.95rem;
     color: #6b4e3d;         
   }
+  /* Custom link palette  */
+:root{
+    --link:   #1141cd;  /* normal */
+    --hover:  #4f4fa0;  /* hover/focus */
+    --visited:#6b3fa0;  /* visited */
+    --active: #c13b2a;  /* active (mouse down) */
+  }
+  
+  a:link {
+    color: var(--link);
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: var(--visited);
+  }
+  
+  a:hover,
+  a:focus {
+    color: var(--hover);
+    text-decoration: underline;   
+    outline-offset: 2px;         
+  }
+  
+  a:active {
+    color: var(--active);
+  }
+  
   

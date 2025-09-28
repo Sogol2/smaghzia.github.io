@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sogol Maghzian – ITIS 3135 – Website Evaluations</title>
+  <link rel="stylesheet" href="./styles/default.css">
+</head>
+<body>
+  <header>
+    <h1>Sogol Maghzian – ITIS 3135</h1>
+    <!-- GLOBAL SITE NAV — add a link to this page in your shared header include too -->
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./website_evaluations.html" aria-current="page">Website Evaluations</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Website Evaluations</h2>
+
+    <!-- GOOD EXAMPLE -->
+    <section>
+      <h3><a href="https://www.apple.com/" target="_blank" rel="noopener">Apple</a></h3>
+      <p>Apple’s marketing site highlights products with bold imagery, minimal copy, and consistent grid/spacing. It’s a clean example of visual hierarchy.</p>
+      <ul>
+        <li><strong>Contrast:</strong> Large hero images vs. small body text; heavy weight headlines vs. light body copy make priorities obvious.</li>
+        <li><strong>Repetition:</strong> Reused type scale, button styles, grid gutters, and ample white space unify pages.</li>
+        <li><strong>Alignment:</strong> Precise left/center alignment and consistent columns keep the eye moving predictably.</li>
+        <li><strong>Proximity:</strong> Headlines, copy, and CTAs are tightly grouped per product; unrelated blocks have generous spacing.</li>
+      </ul>
+    </section>
+
+    <!-- BAD EXAMPLE -->
+    <section>
+      <h3><a href="https://www.lingscars.com/" target="_blank" rel="noopener">Ling’s Cars</a></h3>
+      <p>Infamously busy layout with animation, clashing colors, and dense clusters of elements. Memorable, but breaks most fundamentals.</p>
+      <ul>
+        <li><strong>Contrast:</strong> So many competing colors, sizes, and effects that nothing clearly stands out as primary.</li>
+        <li><strong>Repetition:</strong> Few consistent patterns; many one-off badges, fonts, and buttons produce visual noise.</li>
+        <li><strong>Alignment:</strong> Elements stack in irregular blocks with mixed alignments, weakening the reading flow.</li>
+        <li><strong>Proximity:</strong> Unrelated items are crammed together; related info is often split apart, making scanning hard.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Sogol Maghzian • ITIS 3135</p>
+    <nav aria-label="Footer">
+      <a href="https://github.com/Sogol2" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="https://webpages.charlotte.edu/smaghzia/" target="_blank" rel="noopener">CLT Site</a>
+    </nav>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </footer>
+</body>
+</html>
