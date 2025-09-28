@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!-- CRAPPY on purpose: bad file name, inline styles everywhere, etc. -->
+<html>
+<head>
+  <title>THIS IS THE BEST WORST PAGE</title>
+
+  <!-- absolute link to a stylesheet  -->
+  <link rel="stylesheet" href="https://webpages.charlotte.edu/smaghzia/styles/default.css">
+
+  <style>
+    /* even more inline-ish junk  */
+    .chaos-box {
+      border-top: 20px dashed red;
+      border-right: 14px dotted green;
+      border-bottom: 18px double blue;
+      border-left: 22px solid purple;
+      padding: 18px;
+      margin: 37px;
+      /* poor contrast text + background color on text  */
+      background: #ffffcc;
+      color: #eeeeee;
+    }
+  </style>
+</head>
+
+<!-- white background + black default font, but we’ll break contrast in places -->
+<body style="background:#ffffff; color:#000000; font-family: Times New Roman, Times, serif;">
+
+  <!-- separate, local nav (absolute links, default colors, caps, spaces) -->
+  <nav>
+    <p>
+      <a href="https://webpages.charlotte.edu/smaghzia/">HOME</a> |
+      <a href="https://webpages.charlotte.edu/smaghzia/itis3135/">ITIS 3135</a> |
+      <a href="https://webpages.charlotte.edu/smaghzia/itis3135/stuff/MY%20BAD%20PAGE%20%26%20STUFF.htm">CRAPPY PAGE</a>
+    </p>
+  </nav>
+
+  <!-- headers out of order -->
+  <h2 style="text-decoration: underline;">Secondary Heading That Comes First</h2>
+  <h1>Primary Heading That Weirdly Comes Second</h1>
+  <h3>Then A Third Level Because Why Not</h3>
+
+  <!-- underline that is NOT a link -->
+  <p><u>THIS IS UNDERLINED BUT NOT A LINK LOL</u></p>
+
+  <!-- huge centered paragraph, comic sans + papyrus used elsewhere -->
+  <p style="text-align:center; font-size:48px; margin: 13px;">
+    Big Centered Text (HUGE!) With <span style="font-family:'Comic Sans MS', 'Comic Sans', cursive;">Comic Sans</span>
+  </p>
+
+  <!-- inconsistent margins + background color on some text -->
+  <p style="margin-left:82px; margin-right:7px;">
+    Here is a paragraph with <span style="background:#ff0;">random yellow background</span> on a few <span style="background:#cfc;">words</span>
+    and an <span style="font-family: Papyrus, fantasy;">elegant Papyrus</span> moment, because of course.
+  </p>
+
+  <!-- centered bullet list -->
+  <ul style="text-align:center; list-style-position: inside; margin-left:0;">
+    <li>Centered List Item One</li>
+    <li>Centered List Item Two</li>
+    <li>Centered List Item Three</li>
+  </ul>
+
+  
+<h4 style="text-align:center;">
+    EXTREMELY_LONG_MEANINGLESS_FILE_NAME_THAT_IS_NOT_IN_IMAGES_FOLDER_AND_HAS_NO_EXTENSION_AND_IS_IMPOSSIBLE_TO_REMEMBER
+  </h4>
+  
+  <!-- only an <img> tag, forced 400x400 to wreck aspect ratio; absolute URL; no credit -->
+  <p style="text-align:center;">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Fronalpstock_big.jpg"
+      width="400" height="400"
+      alt="Random Big Internet Picture">
+  </p>
+  
+
+  <!-- repeated inline styles that should be in CSS -->
+  <p style="margin:5px; font-size:14px;">I like repeating <span style="color:#000000;">inline</span> styles.</p>
+  <p style="margin:55px; font-size:14px;">I like repeating <span style="color:#000000;">inline</span> styles again.</p>
+
+  <!-- poor contrast on purpose inside chaos box -->
+  <div class="chaos-box" style="font-family: 'Times New Roman', Times, serif;">
+    This box has a REALLY BIG BORDER with four different styles,
+    and the text color is nearly the same value as the background (awful contrast).
+  </div>
+
+  <!-- absolute link left with default colors -->
+  <p>
+    Visit <a href="https://example.com">this totally random absolute link</a> that we’re not styling at all.
+  </p>
+
+  <!-- more font chaos -->
+  <p style="font-family: 'Comic Sans MS', cursive;">Comic Sans again, because consistency is for good pages.</p>
+  <p style="font-family: Papyrus, fantasy;">Papyrus returns triumphantly.</p>
+  <p style="font-family: Times New Roman, Times, serif;">Times is here too.</p>
+
+  <!-- extra blank lines everywhere -->
+
+
+
+  <!-- EVEN MORE blank lines at the end  -->
+
+
+
+
+
+
+
+
+
+</body>
+</html>
