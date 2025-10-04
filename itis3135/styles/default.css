@@ -17,11 +17,14 @@ a:hover {
     text-decoration:underline;
 }
 
-main{
-    text-align: left;
-    margin-left: 20%;
-    margin-right: 20%;
+main {
+  width: 90%;           
+  max-width: 1200px;   
+  margin: 0 auto;       
+  background-color: #fff;
+  text-align: center;
 }
+
 
 h2{
     text-align: center;
@@ -72,4 +75,34 @@ h2{
     color: var(--active);
   }
   
+  /* ----- TABLET DEVICES ----- */
+@media screen and (min-width: 601px) and (max-width: 980px) {
+  #colorbox {
+    background-color: orange;
+  }
+
+  main {
+    width: 95%;
+  }
+}
+
+/* ----- MOBILE DEVICES ----- */
+@media screen and (min-width: 370px) and (max-width: 600px) {
+  #colorbox {
+    background-color: red;
+  }
+
+  main {
+    width: 98%;
+    font-size: 0.95rem;
+  }
+}
+
+/* ----- SMALL LAPTOPS / MID-SCREENS ----- */
+@media screen and (min-width: 981px) and (max-width: 1400px) {
+  #colorbox {
+    background-color: yellow;
+  }
+}
+
   
