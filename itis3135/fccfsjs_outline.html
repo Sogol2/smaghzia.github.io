@@ -212,5 +212,19 @@
     
     
   </footer>
+  <!-- Include processor + validator links -->
+  <script src="/smaghzia/itis3135/scripts/HTMLInclude.min.js"></script>
+  <script>
+    // If the library needs an explicit call, do it on DOM ready.
+    try { window.HTMLInclude && HTMLInclude(); } catch(e){}
+
+    // After everything (includes) is loaded, set validator links.
+    window.addEventListener('load', function () {
+      const h = document.getElementById('validation_link_html') || document.getElementById('validation-link-html');
+      const c = document.getElementById('validation_link_css')  || document.getElementById('validation-link-css');
+      if (h) h.setAttribute('href', 'https://validator.w3.org/check?uri=' + location.href);
+      if (c) c.setAttribute('href', 'https://jigsaw.w3.org/css-validator/validator?uri=' + location.href);
+    });
+  </script>
 </body>
 </html>
