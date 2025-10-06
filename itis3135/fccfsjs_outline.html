@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FCC Full Stack JavaScript Outline</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <style>
+    :root{
+      --maxw: 1100px;
+      --pad: 1rem;
+      --radius: 14px;
+      --bg: #f7f7f5;
+      --ink:#1a1a1a;
+      --muted:#5f6368;
+      --line:#e6e6e3;
+      --brand:#0a5fff;
+      --brand-ink:#0a3ea3;
+      --zebra:#fafafa;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+    }
+
+   
+    header, footer{
+      background:#fff;
+      border-bottom:1px solid var(--line);
+    }
+    header .wrap, main .wrap, footer .wrap{ 
+      max-width:var(--maxw); margin:0 auto; padding: .85rem var(--pad);
+    }
+    nav a{
+      text-decoration:none; color:var(--brand); margin-right:.9rem; font-weight:600;
+    }
+    nav a:hover{ color:var(--brand-ink); text-decoration:underline; }
+
+    h1{ margin:.5rem 0 0.25rem; font-size:clamp(1.35rem, 2.6vw, 1.85rem); }
+    .subtle{ color:var(--muted); }
+
+    .card{
+      background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+      padding: var(--pad);
+      box-shadow: 0 2px 6px rgba(0,0,0,.04);
+    }
+
+    /* TABLE */
+    .table-wrap{ overflow:auto; border-radius: calc(var(--radius) - 2px); border:1px solid var(--line); }
+    table{ width:100%; border-collapse:separate; border-spacing:0; min-width:720px; }
+    caption{
+      text-align:left; padding:.9rem 1rem; font-weight:700; background:#fff; border-bottom:1px solid var(--line);
+    }
+    thead th{
+      position: sticky; top:0; z-index:1;
+      background:#fff; border-bottom:1px solid var(--line);
+      text-align:left; padding:.8rem .9rem; font-size:.95rem;
+    }
+    tbody td, tbody th{
+      padding:.75rem .9rem; vertical-align:middle; border-bottom:1px solid var(--line);
+    }
+    tbody tr:nth-child(even){ background:var(--zebra); }
+    tfoot td{
+      padding:.85rem .9rem; background:#fff; font-weight:700; border-top:2px solid var(--line);
+    }
+    colgroup col:nth-child(1){ width:4ch; }
+    colgroup col:nth-child(2){ width:44%; }
+    colgroup col:nth-child(3){ width:18%; }
+    colgroup col:nth-child(4){ width:18%; }
+    colgroup col:nth-child(5){ width:20%; }
+
+    .tag{ display:inline-block; padding:.15rem .5rem; border:1px solid var(--line); border-radius:999px; font-size:.8rem; color:var(--muted); }
+    .ok{ color:#117a37; border-color:#cfe9d7; }
+    .todo{ color:#9a6700; border-color:#f6e6b6; }
+    .tbd{ color:#6a1b9a; border-color:#ead9f4; }
+
+    /* Schedule */
+    .grid{ display:grid; gap:1rem; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); }
+    .schedule h3{ margin:.2rem 0 .5rem; font-size:1.05rem; }
+    .schedule ul{ margin:.2rem 0 0 1.1rem; padding:0; }
+    .ack{ font-style:italic; color:var(--muted); }
+
+    /* Small helper */
+    .sr{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+  </style>
+</head>
+<body>
+  <!-- Shared Site Header -->
+  <header>
+    <div data-include="components/header.html"></div>
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+
+  </header>
+
+  <main>
+    <div class="wrap">
+      <section class="card" aria-labelledby="tbl-title">
+        <h2 id="tbl-title" class="sr">JavaScript Section Outline Table</h2>
+        <div class="table-wrap">
+            <table>
+                <caption>
+                  JavaScript Portion Outline — 996 total steps across 23 sections (Fall 2025)
+                </caption>
+              
+                <colgroup>
+                  <col span="1">
+                  <col span="1">
+                  <col span="1">
+                  <col span="1">
+                  <col span="1">
+                </colgroup>
+              
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Section Title</th>
+                    <th scope="col">Steps</th>
+                    <th scope="col">Est. Time</th>
+                    <th scope="col">Notes / Status</th>
+                  </tr>
+                </thead>
+              
+                <tbody>
+                  <tr><th scope="row">1</th><td>Code Editors</td><td>5</td><td>~0.5 hr</td><td><span class="tag ok">Done</span> Intro setup</td></tr>
+                  <tr><th scope="row">2</th><td>Variables and Strings</td><td>62</td><td>~3 hr</td><td><span class="tag todo">In progress</span></td></tr>
+                  <tr><th scope="row">3</th><td>Booleans and Numbers</td><td>37</td><td>~2 hr</td><td><span class="tag todo">Next up</span></td></tr>
+                  <tr><th scope="row">4</th><td>Functions</td><td>38</td><td>~2 hr</td><td><span class="tag tbd">Pending</span></td></tr>
+                  <tr><th scope="row">5</th><td>Arrays</td><td>35</td><td>~2 hr</td><td><span class="tag tbd">Pending</span></td></tr>
+                  <tr><th scope="row">6</th><td>Objects</td><td>28</td><td>~1.5 hr</td><td><span class="tag tbd">Pending</span></td></tr>
+                  <tr><th scope="row">7</th><td>Loops</td><td>22</td><td>~1.5 hr</td><td><span class="tag tbd">Pending</span></td></tr>
+                  <tr><th scope="row">8</th><td>JavaScript Fundamentals Review</td><td>30</td><td>~2 hr</td><td><span class="tag tbd">Checkpoint</span></td></tr>
+                  <tr><th scope="row">9</th><td>Higher Order Functions and Callbacks</td><td>37</td><td>~3 hr</td><td><span class="tag tbd">Pending</span></td></tr>
+                  <tr><th scope="row">10</th><td>DOM Manipulation and Events</td><td>87</td><td>~5 hr</td><td><span class="tag tbd">Major module</span></td></tr>
+                  <tr><th scope="row">11</th><td>JavaScript and Accessibility</td><td>42</td><td>~2 hr</td><td><span class="tag tbd">Pending</span></td></tr>
+                  <tr><th scope="row">12</th><td>Debugging</td><td>8</td><td>~0.5 hr</td><td><span class="tag tbd">Quick utility</span></td></tr>
+                  <tr><th scope="row">13</th><td>Basic Regex</td><td>47</td><td>~3 hr</td><td><span class="tag tbd">Pattern matching</span></td></tr>
+                  <tr><th scope="row">14</th><td>Form Validation</td><td>103</td><td>~6 hr</td><td><span class="tag tbd">Longest section</span></td></tr>
+                  <tr><th scope="row">15</th><td>Dates</td><td>5</td><td>~0.5 hr</td><td><span class="tag tbd">Brief</span></td></tr>
+                  <tr><th scope="row">16</th><td>Audio and Video Events</td><td>55</td><td>~3 hr</td><td><span class="tag tbd">Multimedia</span></td></tr>
+                  <tr><th scope="row">17</th><td>Maps and Sets</td><td>37</td><td>~2 hr</td><td><span class="tag tbd">New structures</span></td></tr>
+                  <tr><th scope="row">18</th><td>localStorage and CRUD Operations</td><td>78</td><td>~4 hr</td><td><span class="tag tbd">Persistent data</span></td></tr>
+                  <tr><th scope="row">19</th><td>Classes</td><td>68</td><td>~3 hr</td><td><span class="tag tbd">OOP fundamentals</span></td></tr>
+                  <tr><th scope="row">20</th><td>Recursion</td><td>112</td><td>~6 hr</td><td><span class="tag tbd">Advanced logic</span></td></tr>
+                  <tr><th scope="row">21</th><td>Functional Programming</td><td>23</td><td>~2 hr</td><td><span class="tag tbd">map/filter/reduce</span></td></tr>
+                  <tr><th scope="row">22</th><td>Asynchronous JavaScript</td><td>36</td><td>~2 hr</td><td><span class="tag tbd">async/await</span></td></tr>
+                  <tr><th scope="row">23</th><td>JavaScript Review</td><td>—</td><td>~1 hr</td><td><span class="tag tbd">Final recap</span></td></tr>
+                </tbody>
+              
+                <tfoot>
+                  <tr>
+                    <td colspan="5">
+                      Total: 996 steps across 23 sections (as of Fall 2025)
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
+              
+        </div>
+        <p class="subtle" style="margin-top:.6rem;">*Estimates assume ~20–30 steps/hour depending on difficulty.</p>
+      </section>
+
+      <section class="card schedule" style="margin-top:1rem" aria-labelledby="sched-title">
+        <h2 id="sched-title">My 4-Week Completion Plan (Oct 6 – Nov 2, 2025)</h2>
+        <div class="grid">
+          <div>
+            <h3>Week 1 — Oct 6–12</h3>
+            <ul>
+              <li>Code Editors (5 pages) — finish Day 1</li>
+              <li>Variables &amp; Strings — steps 1–31</li>
+              <li>Buffer day for note-taking</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Week 2 — Oct 13–19</h3>
+            <ul>
+              <li>Variables &amp; Strings — steps 32–62</li>
+              <li>Booleans &amp; Numbers (37 steps)</li>
+              <li>Light review quiz</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Week 3 — Oct 20–26</h3>
+            <ul>
+              <li>Conditionals + Loops</li>
+              <li>Functions &amp; Scope</li>
+              <li>Arrays &amp; Objects</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Week 4 — Oct 27 – Nov 2</h3>
+            <ul>
+              <li>ES6+ features</li>
+              <li>DOM Basics + Projects</li>
+              <li>Catch-up / push ahead to Async &amp; Fetch</li>
+            </ul>
+          </div>
+        </div>
+        <p class="ack" style="margin-top:.6rem;">
+          I, Sogol Maghzian, intend to finish the freeCodeCamp Full Stack Developer JavaScript section over the next 4 weeks according to the schedule above.
+          I acknowledge that this is a single assignment within the course (not broken into parts) and I will take responsibility for pacing myself.
+          <br/>— Sogol Maghzian, Oct 6, 2025
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div data-include="components/footer.html"></div>
+    
+    
+  </footer>
+</body>
+</html>
