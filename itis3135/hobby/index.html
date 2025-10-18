@@ -215,18 +215,35 @@
   </footer>
 
   <script>
-    const sections=[...document.querySelectorAll("main section")];
-    const links=[...document.querySelectorAll("nav a[data-target]")];
-    function show(id){
-      sections.forEach(s=>s.classList.toggle("active",s.id===id));
-      links.forEach(a=>a.setAttribute("aria-current",a.dataset.target===id?"page":"false"));
-      history.replaceState(null,"","#"+id);
-    }
-    links.forEach(a=>a.addEventListener("click",e=>{
-      e.preventDefault();show(a.dataset.target);
-    }));
-    show((location.hash||"#what").substring(1));
-    window.addEventListener("hashchange",()=>show(location.hash.substring(1)));
+    (function () {
+      var sections = Array.prototype.slice.call(document.querySelectorAll("main section"));
+      var links = Array.prototype.slice.call(document.querySelectorAll('nav a[data-target]'));
+  
+      function show(id) {
+        sections.forEach(function (s) {
+          s.classList.toggle("active", s.id === id);
+        });
+        links.forEach(function (a) {
+          a.setAttribute("aria-current", (a.dataset.target === id) ? "page" : "false");
+        });
+        history.replaceState(null, "", "#" + id);
+      }
+  
+      links.forEach(function (a) {
+        a.addEventListener("click", function (e) {
+          e.preventDefault();
+          show(a.dataset.target);
+        });
+      });
+  
+      var initial = (location.hash || "#what").substring(1);
+      show(initial);
+  
+      window.addEventListener("hashchange", function () {
+        show(location.hash.substring(1));
+      });
+    })();
   </script>
+  
 </body>
 </html>
