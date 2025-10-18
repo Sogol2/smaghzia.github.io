@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Dancing — My Hobby</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Embedded CSS only -->
+  <style>
+    :root{
+      --bg:#14002e;
+      --panel:#1c053e;
+      --ink:#f9f9fb;
+      --muted:#c7bcd6;
+      --brand:#f72585;
+      --brand2:#7209b7;
+      --accent:#3a0ca3;
+      --divider:"❥";
+      --radius:14px;
+      --pad:1rem;
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background:radial-gradient(circle at 80% -20%, var(--brand2), var(--bg));
+      color:var(--ink);
+    }
+    header,footer{max-width:var(--maxw);margin:auto;padding:1rem;}
+    h1{color:var(--brand);margin:0;font-size:2rem;}
+    nav ul{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;padding:0;margin:.75rem 0;}
+    nav a{
+      text-decoration:none;color:var(--ink);padding:.5rem .9rem;
+      border-radius:999px;border:1px solid transparent;
+      background:rgba(255,255,255,.05);transition:.2s;
+    }
+    nav a:hover{background:var(--brand2);}
+    nav a[aria-current="page"]{background:var(--brand);color:white;font-weight:600;}
+    nav li.div::before{content:var(--divider);color:var(--brand);margin:0 .2rem;}
+    main{max-width:var(--maxw);margin:auto;padding:1rem;}
+    section{display:none;animation:fade .3s ease;}
+    section.active{display:block;}
+    @keyframes fade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+    h2{color:var(--brand);margin-top:0;}
+    p{line-height:1.6;}
+    figure{margin:1rem 0;border:1px solid #3a0ca3;border-radius:12px;padding:.6rem;background:rgba(0,0,0,.2);}
+    figure img{width:100%;border-radius:8px;}
+    figcaption{font-weight:600;color:var(--brand2);}
+    .ai-note{font-style:italic;color:var(--muted);}
+    table{width:100%;border-collapse:collapse;background:rgba(0,0,0,.2);}
+    th,td{padding:.5rem;border:1px solid #3a0ca3;}
+    th{color:var(--brand);}
+    .card{background:rgba(0,0,0,.25);padding:1rem;border-radius:12px;border:1px solid #3a0ca3;}
+    footer{border-top:1px solid #3a0ca3;}
+    .badges a{color:var(--ink);text-decoration:none;border:1px solid #3a0ca3;
+      border-radius:8px;padding:.3rem .6rem;margin-right:.3rem;display:inline-block;}
+    .badges a:hover{background:var(--brand2);}
+    .firm a{color:var(--brand);text-decoration:none;border-bottom:1px dotted var(--brand);}
+    .firm a:hover{filter:brightness(1.2);}
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Dancing</h1>
+    <p>Expressing emotion, rhythm, and energy through movement.</p>
+    <nav>
+      <ul>
+        <li><a href="#what" data-target="what" aria-current="page">What</a></li><li class="div"></li>
+        <li><a href="#who" data-target="who">Who</a></li><li class="div"></li>
+        <li><a href="#when" data-target="when">When</a></li><li class="div"></li>
+        <li><a href="#where" data-target="where">Where</a></li><li class="div"></li>
+        <li><a href="#how" data-target="how">How</a></li><li class="div"></li>
+        <li><a href="#why" data-target="why">Why</a></li><li class="div"></li>
+        <li><a href="#ai" data-target="ai">AI&nbsp;Prompts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- WHAT -->
+    <section id="what" class="active">
+      <h2>What is Dancing?</h2>
+      <p>Dancing is the art of expressing stories and feelings through rhythm, music, and body movement. It connects cultures, improves coordination, and spreads joy.</p>
+      <div class="card">
+        <p><strong>Styles I love:</strong></p>
+        <ul>
+          <li>Hip-hop — energetic, creative, and bold</li>
+          <li>Contemporary — emotional and free-flowing</li>
+          <li>Latin — full of rhythm and partnership</li>
+        </ul>
+      </div>
+      <figure>
+        <img src="images/what-dance.jpg" alt="Dancer performing under colorful lights on stage.">
+        <figcaption>Rhythm in Motion</figcaption>
+        <p class="ai-note"><em>AI prompt: “Photorealistic dancer on stage with neon lighting performing hip-hop move, dramatic lighting, motion blur.”</em></p>
+      </figure>
+    </section>
+
+    <!-- WHO -->
+    <section id="who">
+      <h2>Who Am I</h2>
+      <p>Hi, I’m <strong>Sogol</strong>! Dancing has been part of my life since childhood. It’s my creative outlet and the way I recharge after studying. I dance whenever I need energy or peace of mind.</p>
+      <figure>
+        <img src="images/who-me.jpg" alt="Person stretching in a dance studio mirror with soft light.">
+        <figcaption>Finding Flow</figcaption>
+        <p class="ai-note"><em>AI prompt: “Photorealistic young woman stretching in a dance studio mirror with soft morning light.”</em></p>
+      </figure>
+      <p class="card">“When words fail, movement speaks.”</p>
+    </section>
+
+    <!-- WHEN -->
+    <section id="when">
+      <h2>When I Dance</h2>
+      <p>I usually dance in the evenings to relax and let go of stress. On weekends, I spend more time learning choreography or freestyle with friends.</p>
+      <table>
+        <thead><tr><th>Day</th><th>Type</th><th>Time</th></tr></thead>
+        <tbody>
+          <tr><td>Mon-Wed</td><td>Quick freestyle</td><td>8-8:30 PM</td></tr>
+          <tr><td>Fri</td><td>Studio class</td><td>6-7 PM</td></tr>
+          <tr><td>Sun</td><td>Practice & record</td><td>4-6 PM</td></tr>
+        </tbody>
+      </table>
+      <figure>
+        <img src="images/when-stages.jpg" alt="Different dance stages: practice, rehearsal, and performance.">
+        <figcaption>From Practice to Performance</figcaption>
+        <p class="ai-note"><em>AI prompt: “Collage of dancer practicing in studio, rehearsing on empty stage, then performing with audience.”</em></p>
+      </figure>
+    </section>
+
+    <!-- WHERE -->
+    <section id="where">
+      <h2>Where I Dance</h2>
+      <p>Anywhere music plays! My favorite spots are the campus dance studio, my living room, or open parks with speakers and friends.</p>
+      <figure>
+        <img src="images/where-studio.jpg" alt="Dance studio with wooden floors, mirrors, and purple lighting.">
+        <figcaption>My Studio Space</figcaption>
+        <p class="ai-note"><em>AI prompt: “Photorealistic dance studio with wooden floor, mirror wall, and purple LED lights.”</em></p>
+      </figure>
+      <p class="card">Dancing outside during sunset feels magical—the world becomes your stage.</p>
+    </section>
+
+    <!-- HOW -->
+    <section id="how">
+      <h2>How I Practice</h2>
+      <p>I start with a warm-up, then focus on one move or combo at a time. Recording sessions helps me notice posture and timing. I also learn by watching professionals and repeating small sequences.</p>
+      <ol>
+        <li>Stretch for 10 minutes</li>
+        <li>Pick one song and focus on rhythm</li>
+        <li>Freestyle for confidence</li>
+      </ol>
+      <figure>
+        <img src="images/how-steps.jpg" alt="Feet moving mid-dance on a lit stage floor.">
+        <figcaption>Step by Step</figcaption>
+        <p class="ai-note"><em>AI prompt: “Close-up of dancer’s feet mid-movement on a lit stage floor with colored light reflections.”</em></p>
+      </figure>
+    </section>
+
+    <!-- WHY -->
+    <section id="why">
+      <h2>Why I Love Dancing</h2>
+      <p>Dancing gives me freedom, confidence, and happiness. It helps me express what words can’t and connect with others who share the same rhythm.</p>
+      <div class="card">
+        <ul>
+          <li><strong>Emotion:</strong> transforms stress into energy</li>
+          <li><strong>Fitness:</strong> keeps me active and strong</li>
+          <li><strong>Community:</strong> dancing brings people together</li>
+        </ul>
+      </div>
+      <figure>
+        <img src="images/why-joy.jpg" alt="Group of dancers laughing after a performance.">
+        <figcaption>Joy in Motion</figcaption>
+        <p class="ai-note"><em>AI prompt: “Photorealistic group of young dancers smiling and high-fiving after stage performance, warm lighting.”</em></p>
+      </figure>
+    </section>
+
+    <!-- AI PROMPTS -->
+    <section id="ai">
+      <h2>AI Prompts Used</h2>
+      <ul>
+        <li><strong>Site code prompt:</strong> “Create a single-page dancing hobby website with sections (Who, What, When, Where, How, Why, AI Prompts), pink/purple theme, and CRAP design.”</li>
+        <li><strong>What image:</strong> “Photorealistic dancer on stage with neon lighting performing hip-hop move.”</li>
+        <li><strong>Who image:</strong> “Photorealistic woman stretching in a dance studio mirror.”</li>
+        <li><strong>When collage:</strong> “Collage of dancer practicing, rehearsing, performing.”</li>
+        <li><strong>Where image:</strong> “Photorealistic dance studio with wooden floor and purple LED lights.”</li>
+        <li><strong>How image:</strong> “Close-up of dancer’s feet mid-movement with colorful reflections.”</li>
+        <li><strong>Why image:</strong> “Photorealistic group of dancers celebrating after performance.”</li>
+      </ul>
+      <p class="ai-note">I only used AI for images and text inspiration.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Page built by <span class="firm"><a href="../design-firm/">Maghzian Enterprises</a></span> © 2025</p>
+    <div class="badges">
+      <a href="https://validator.w3.org/nu/#file" target="_blank">HTML ✔</a>
+      <a href="https://jigsaw.w3.org/css-validator/" target="_blank">CSS ✔</a>
+      <a href="https://wave.webaim.org/" target="_blank">Accessibility ✔</a>
+    </div>
+  </footer>
+
+  <script>
+    const sections=[...document.querySelectorAll("main section")];
+    const links=[...document.querySelectorAll("nav a[data-target]")];
+    function show(id){
+      sections.forEach(s=>s.classList.toggle("active",s.id===id));
+      links.forEach(a=>a.setAttribute("aria-current",a.dataset.target===id?"page":"false"));
+      history.replaceState(null,"","#"+id);
+    }
+    links.forEach(a=>a.addEventListener("click",e=>{
+      e.preventDefault();show(a.dataset.target);
+    }));
+    show((location.hash||"#what").substring(1));
+    window.addEventListener("hashchange",()=>show(location.hash.substring(1)));
+  </script>
+</body>
+</html>
