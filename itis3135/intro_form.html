@@ -69,7 +69,14 @@
         </label>
         <label>
           Acknowledgment Date *
-          <input type="date" name="ack_date" required value="2025-10-25" />
+          <input
+          type="date"
+          name="ack_date"
+          required
+          value="2025-10-25"
+          inputmode="numeric"
+          pattern="\d{4}-\d{2}-\d{2}"
+          placeholder="YYYY-MM-DD"/>
         </label>
       </fieldset>
 

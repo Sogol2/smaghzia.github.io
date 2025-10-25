@@ -138,7 +138,7 @@ if (!supportsDate && ackDate) {
     if (addCourseBtn) addCourseBtn.addEventListener("click", function () {
         coursesWrap.appendChild(makeCourseRow());
       });
-      
+
     if (coursesWrap) coursesWrap.addEventListener("click", function (e) {
         const btn = e.target && e.target.closest ? e.target.closest(".remove-course") : null;
         if (btn) {
@@ -228,45 +228,52 @@ if (!supportsDate && ackDate) {
       }
   
       // Prefer uploaded image; else resolved URL; else whatever is in preview
-      const resolvedUrl =
-        pictureUrl ? resolveUrl((pictureUrl.value || "").trim()) : "";
-      const imageSrc = uploadedDataUrl || resolvedUrl || pictureImg?.src || "";
-  
-      const out = {
-        first: fd.get("first_name")?.trim() || "",
-        middle: fd.get("middle_name")?.trim() || "",
-        nick: fd.get("nickname")?.trim() || "",
-        last: fd.get("last_name")?.trim() || "",
-        ackStmt: fd.get("ack_statement")?.trim() || "",
-        ackDate: fd.get("ack_date") || "",
-        adj: fd.get("mascot_adj")?.trim() || "",
-        animal: fd.get("mascot_animal")?.trim() || "",
-        divider: fd.get("divider")?.trim() || "",
-        picUrl: imageSrc,
-        picCap: fd.get("picture_caption")?.trim() || "",
-        personal: fd.get("personal_statement")?.trim() || "",
-        bullets: {
-          personal_bg: fd.get("bullet_personal_bg")?.trim() || "",
-          academic_bg: fd.get("bullet_academic_bg")?.trim() || "",
-          professional_bg: fd.get("bullet_professional_bg")?.trim() || "",
-          web_bg: fd.get("bullet_web_bg")?.trim() || "",
-          platform: fd.get("bullet_platform")?.trim() || "",
-          courses_overview: fd.get("bullet_courses_overview")?.trim() || "",
-          interesting: fd.get("bullet_interesting")?.trim() || "",
-        },
-        courses,
-        quote: fd.get("quote")?.trim() || "",
-        quoteAuthor: fd.get("quote_author")?.trim() || "",
-        funny: fd.get("funny")?.trim() || "",
-        share: fd.get("share")?.trim() || "",
-        links: [
-          fd.get("link1")?.trim() || "",
-          fd.get("link2")?.trim() || "",
-          fd.get("link3")?.trim() || "",
-          fd.get("link4")?.trim() || "",
-          fd.get("link5")?.trim() || "",
-        ].filter(Boolean),
-      };
+   // Prefer uploaded image; else resolved URL; else whatever is in preview
+var resolvedUrl = pictureUrl ? resolveUrl((pictureUrl.value || "").trim()) : "";
+var imageSrc = uploadedDataUrl || resolvedUrl || (pictureImg ? pictureImg.src : "");
+
+// tiny helper to safely get & trim fields without optional chaining
+function g(name) {
+  var v = fd.get(name);
+  return v ? String(v).trim() : "";
+}
+
+var out = {
+  first: g("first_name"),
+  middle: g("middle_name"),
+  nick: g("nickname"),
+  last: g("last_name"),
+  ackStmt: g("ack_statement"),
+  ackDate: fd.get("ack_date") ? String(fd.get("ack_date")) : "",
+  adj: g("mascot_adj"),
+  animal: g("mascot_animal"),
+  divider: g("divider"),
+  picUrl: imageSrc,
+  picCap: g("picture_caption"),
+  personal: g("personal_statement"),
+  bullets: {
+    personal_bg: g("bullet_personal_bg"),
+    academic_bg: g("bullet_academic_bg"),
+    professional_bg: g("bullet_professional_bg"),
+    web_bg: g("bullet_web_bg"),
+    platform: g("bullet_platform"),
+    courses_overview: g("bullet_courses_overview"),
+    interesting: g("bullet_interesting")
+  },
+  courses: courses,
+  quote: g("quote"),
+  quoteAuthor: g("quote_author"),
+  funny: g("funny"),
+  share: g("share"),
+  links: [
+    g("link1"),
+    g("link2"),
+    g("link3"),
+    g("link4"),
+    g("link5")
+  ].filter(function (s) { return s; })
+};
+
       return out;
     }
   
@@ -388,13 +395,16 @@ if (!supportsDate && ackDate) {
       // Replace the form with result
       formEl.replaceWith(wrapper);
   
-      // Reset link
-      wrapper.querySelector("#start-over")?.addEventListener("click", (e) => {
-        e.preventDefault();
-        // simplest: reload page to restore original form with defaults
-        location.reload();
-      });
-    }
+     // Reset link
+var startOver = wrapper.querySelector("#start-over");
+if (startOver) {
+  startOver.addEventListener("click", function (e) {
+    e.preventDefault();
+    // simplest: reload page to restore original form with defaults
+    location.reload();
+  });
+}
+
   
     // ---------- utilities ----------
     function escapeHtml(s) {
