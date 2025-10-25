@@ -223,21 +223,6 @@
   <!-- Page logic for the form -->
   <script src="./scripts/introduction.js" defer></script>
 
-  <!-- Fallback minimal include loader (only runs if your includes.js doesn't exist) -->
-  <script>
-    (function initIncludes(){
-      if (!document.querySelector("[data-include]")) return;
-      const slots = document.querySelectorAll("[data-include]");
-      slots.forEach(async el => {
-        if (el.innerHTML.trim()) return;
-        const url = el.getAttribute("data-include");
-        if (!url) return;
-        try {
-          const res = await fetch(url);
-          el.innerHTML = await res.text();
-        } catch(e) { console.warn("Include failed:", url, e); }
-      });
-    })();
-  </script>
+
 </body>
 </html>

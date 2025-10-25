@@ -33,12 +33,13 @@ if (!supportsDate && ackDate) {
   
     // Resolve relative/absolute URLs safely
     function resolveUrl(str) {
-      try {
-        return new URL(str, location.href).href;
-      } catch {
-        return "";
+        try {
+          return new URL(str, location.href).href;
+        } catch (e) {
+          return "";
+        }
       }
-    }
+      
   
     function updatePreviewFromURL() {
       // User typed/edited the URL → ignore any prior upload
@@ -381,6 +382,25 @@ if (!supportsDate && ackDate) {
         .replaceAll('"', "&quot;")
         .replaceAll("'", "&#39;");
     }
+
+    (function initIncludes() {
+        const slots = document.querySelectorAll('[data-include]');
+        if (!slots.length) return;
+      
+        slots.forEach(async (el) => {
+          if (el.innerHTML.trim()) return;
+          const url = el.getAttribute('data-include');
+          if (!url) return;
+      
+          try {
+            const res = await fetch(url);
+            el.innerHTML = await res.text();
+          } catch (e) {
+            console.warn('Include failed:', url, e);
+          }
+        });
+      })();
+      
     function escapeAttr(s) {
       return escapeHtml(s).replaceAll("`", "&#96;");
     }
