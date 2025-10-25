@@ -55,18 +55,21 @@ if (!supportsDate && ackDate) {
     }
   
     function updatePreviewFromFile() {
-      const f = pictureFile?.files?.[0];
-      if (!f) return;
-      const reader = new FileReader();
-      reader.onload = () => {
-        uploadedDataUrl = reader.result;   // persist uploaded image
-        pictureImg.src = uploadedDataUrl;  // preview uploaded image
-        // If a file is chosen, URL field is no longer required
-        syncPictureRequirements();
-        if (pictureUrl) pictureUrl.setCustomValidity("");
-      };
-      reader.readAsDataURL(f);
-    }
+        // NO optional chaining here
+        const f = pictureFile && pictureFile.files && pictureFile.files[0];
+        if (!f) return;
+      
+        const reader = new FileReader();
+        reader.onload = function () {
+          uploadedDataUrl = reader.result;   // persist uploaded image
+          pictureImg.src = uploadedDataUrl;  // preview uploaded image
+          // If a file is chosen, URL field is no longer required
+          syncPictureRequirements();
+          if (pictureUrl) pictureUrl.setCustomValidity("");
+        };
+        reader.readAsDataURL(f);
+      }
+      
   
     function updateCaption() {
       pictureCap.textContent = pictureCaption.value || "Preview";
