@@ -93,10 +93,12 @@
         <legend>Picture</legend>
         <p class="help">Defaults to your current intro image. Users can upload a different one.</p>
         <label>
-          Image URL (defaults to your image) *
-          <input type="url" name="picture_url" required
-                 value="./images/IMG_3965.jpg" placeholder="https://example.com/me.jpg" />
-        </label>
+            Image URL (defaults to your image) *
+            <input id="picture_url" type="text" name="picture_url" required
+                   value="./images/IMG_3965.jpg"
+                   placeholder="https://example.com/me.jpg or ./images/IMG_3965.jpg" />
+          </label>
+          
         <label>
           Or upload an image (optional)
           <input type="file" name="picture_file" accept="image/*" />

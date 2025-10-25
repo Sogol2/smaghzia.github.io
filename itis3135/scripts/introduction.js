@@ -5,32 +5,81 @@
     if (!form) return;
   
     // ---------- Image preview wiring ----------
-    const pictureUrl = form.querySelector('input[name="picture_url"]');
+    // Prefer an element with id="picture_url" (recommended); else fall back to name="picture_url"
+    const pictureUrl =
+      form.querySelector("#picture_url") ||
+      form.querySelector('input[name="picture_url"]');
     const pictureFile = form.querySelector('input[name="picture_file"]');
     const pictureCaption = form.querySelector('input[name="picture_caption"]');
     const pictureImg = document.getElementById("picture-preview");
     const pictureCap = document.getElementById("picture-preview-caption");
   
-    function updatePreviewFromURL() {
-      if (pictureUrl && pictureUrl.value) {
-        pictureImg.src = pictureUrl.value.trim();
+    // Stores the uploaded image as a Data URL so it renders on submit
+    let uploadedDataUrl = null;
+  
+    // Resolve relative/absolute URLs safely
+    function resolveUrl(str) {
+      try {
+        return new URL(str, location.href).href;
+      } catch {
+        return "";
       }
     }
+  
+    function updatePreviewFromURL() {
+      // User typed/edited the URL → ignore any prior upload
+      uploadedDataUrl = null;
+      if (!pictureUrl) return;
+      const raw = (pictureUrl.value || "").trim();
+      if (!raw) return;
+      const abs = resolveUrl(raw);
+      if (abs) {
+        pictureImg.src = abs;
+        pictureUrl.setCustomValidity("");
+      }
+    }
+  
     function updatePreviewFromFile() {
       const f = pictureFile?.files?.[0];
       if (!f) return;
-      const url = URL.createObjectURL(f);
-      pictureImg.src = url;
+      const reader = new FileReader();
+      reader.onload = () => {
+        uploadedDataUrl = reader.result;   // persist uploaded image
+        pictureImg.src = uploadedDataUrl;  // preview uploaded image
+        // If a file is chosen, URL field is no longer required
+        syncPictureRequirements();
+        if (pictureUrl) pictureUrl.setCustomValidity("");
+      };
+      reader.readAsDataURL(f);
     }
+  
     function updateCaption() {
       pictureCap.textContent = pictureCaption.value || "Preview";
     }
   
+    // Friendly feedback if image URL is wrong
+    pictureImg.addEventListener("error", () => {
+      pictureImg.alt = "Image failed to load. Check the URL or upload a file.";
+      pictureCap.textContent = "⚠️ Image not found";
+    });
+  
+    // Keep the "URL required" only when no file is uploaded
+    function syncPictureRequirements() {
+      if (!pictureUrl) return;
+      pictureUrl.required = !(pictureFile && pictureFile.files && pictureFile.files.length > 0);
+    }
+  
     pictureUrl?.addEventListener("input", updatePreviewFromURL);
-    pictureFile?.addEventListener("change", updatePreviewFromFile);
+    pictureFile?.addEventListener("change", () => {
+      updatePreviewFromFile();
+      syncPictureRequirements();
+    });
     pictureCaption?.addEventListener("input", updateCaption);
+  
+    // Initial paint
     updatePreviewFromURL();
     updateCaption();
+    syncPictureRequirements();
   
     // ---------- Add/Remove Courses ----------
     const coursesWrap = document.getElementById("courses");
@@ -64,8 +113,10 @@
     resetBtn?.addEventListener("click", () => {
       // native reset will run first; queue UI fixes after values reset
       setTimeout(() => {
+        uploadedDataUrl = null;
         updatePreviewFromURL();
         updateCaption();
+        syncPictureRequirements();
       }, 0);
     });
   
@@ -75,32 +126,47 @@
       clearBtn.addEventListener("click", function () {
         const inputs = Array.from(form.querySelectorAll("input, textarea"));
         inputs.forEach((el) => {
+          // Clear both text/url/number/date/textarea and file inputs
+          el.value = "";
           if (el.type === "file") el.value = "";
-          else el.value = "";
         });
-        // Clear dynamic courses except the first row
+  
+        // Remove extra course rows, keep the first
         const rows = Array.from(coursesWrap.querySelectorAll(".course-row"));
         rows.slice(1).forEach((r) => r.remove());
-        // Reset preview caption & image to blank state
+  
+        // Reset preview state
+        uploadedDataUrl = null;
         pictureImg.src = "";
         pictureCap.textContent = "Preview";
+  
+        // After clearing file, URL becomes required again
+        syncPictureRequirements();
       });
     }
   
     // ---------- Prevent default submit; validate; render output ----------
-    // (Example from prompt uses const formElement = document.getElementById("form")…)
     form.addEventListener("submit", (e) => e.preventDefault());
-  
     form.addEventListener("submit", handleSubmit);
   
     function handleSubmit() {
-      // 1) Client-side validation: block if required fields missing
+      // If no uploaded image, validate the URL ourselves (supports relative)
+      if (!uploadedDataUrl && pictureUrl) {
+        const abs = resolveUrl((pictureUrl.value || "").trim());
+        if (!abs) {
+          pictureUrl.setCustomValidity("Enter a valid image URL (absolute or relative like ./images/yourphoto.jpg) or upload a file.");
+          pictureUrl.reportValidity();
+          return;
+        }
+        pictureUrl.setCustomValidity("");
+        pictureImg.src = abs; // ensure preview matches what we'll render
+      }
+  
+      // Client-side validation for the rest
       if (!form.reportValidity()) return;
   
-      // 2) Collect data
+      // Collect/Render
       const data = collectFormData(form);
-  
-      // 3) Render the result "Introduction" in place of the form
       renderIntroductionResult(form, data);
     }
   
@@ -123,8 +189,11 @@
         }
       }
   
-      // Prefer uploaded file preview URL if set; else Image URL
-      let imageSrc = pictureImg?.src || "";
+      // Prefer uploaded image; else resolved URL; else whatever is in preview
+      const resolvedUrl =
+        pictureUrl ? resolveUrl((pictureUrl.value || "").trim()) : "";
+      const imageSrc = uploadedDataUrl || resolvedUrl || pictureImg?.src || "";
+  
       const out = {
         first: fd.get("first_name")?.trim() || "",
         middle: fd.get("middle_name")?.trim() || "",
@@ -166,12 +235,7 @@
     // Build a result page that mirrors your intro page layout as closely as possible
     function renderIntroductionResult(formEl, d) {
       // Build name line: "First (Nick) Middle Last"
-      const niceName = [
-        d.first,
-        d.nick ? `(${d.nick})` : "",
-        d.middle,
-        d.last,
-      ]
+      const niceName = [d.first, d.nick ? `(${d.nick})` : "", d.middle, d.last]
         .filter(Boolean)
         .join(" ")
         .trim();
@@ -187,14 +251,21 @@
         .map((c) => {
           const left = [c.dept, c.num].filter(Boolean).join(" ");
           const title = c.name || "";
-          const reason = c.reason ? `<span class="muted"> — ${escapeHtml(c.reason)}</span>` : "";
-          return `<li><strong>${escapeHtml(left)}</strong> ${escapeHtml(title)}${reason}</li>`;
+          const reason = c.reason
+            ? `<span class="muted"> — ${escapeHtml(c.reason)}</span>`
+            : "";
+          return `<li><strong>${escapeHtml(left)}</strong> ${escapeHtml(
+            title
+          )}${reason}</li>`;
         })
         .join("");
   
       // Links list
       const linksLis = d.links
-        .map((u, i) => `<li><a href="${escapeAttr(u)}" target="_blank" rel="noopener">Link ${i + 1}</a></li>`)
+        .map(
+          (u, i) =>
+            `<li><a href="${escapeAttr(u)}" target="_blank" rel="noopener">Link ${i + 1}</a></li>`
+        )
         .join("");
   
       // Assemble output (keeps your page’s H2 = Introduction Form)
@@ -203,7 +274,9 @@
         <section class="intro-result">
           <h3 class="sr-only">Generated Introduction</h3>
   
-          <h1 style="margin:0 0 .5rem 0;">${escapeHtml(niceName)} ${div} ${escapeHtml(mascot)} ${div} ITIS 3135</h1>
+          <h1 style="margin:0 0 .5rem 0;">${escapeHtml(niceName)} ${div} ${escapeHtml(
+        mascot
+      )} ${div} ITIS 3135</h1>
   
           <div class="top-links" style="margin:.25rem 0 1rem 0;">
             <ul style="display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:0;">
@@ -213,21 +286,39 @@
   
           <article class="intro-layout" style="display:grid;grid-template-columns:240px 1fr;gap:1rem;align-items:start;">
             <figure style="margin:0;">
-              <img src="${escapeAttr(d.picUrl)}" alt="Profile image" style="width:100%;height:auto;border:1px solid var(--line,#ddd);padding:4px;border-radius:8px;">
-              <figcaption style="text-align:center;margin-top:.25rem;">${escapeHtml(d.picCap)}</figcaption>
+              <img src="${escapeAttr(
+                d.picUrl
+              )}" alt="Profile image" style="width:100%;height:auto;border:1px solid var(--line,#ddd);padding:4px;border-radius:8px;">
+              <figcaption style="text-align:center;margin-top:.25rem;">${escapeHtml(
+                d.picCap
+              )}</figcaption>
             </figure>
   
             <div>
               <p>${escapeHtml(d.personal)}</p>
   
               <ul>
-                <li><strong>Personal Background:</strong> ${escapeHtml(d.bullets.personal_bg)}</li>
-                <li><strong>Academic Background:</strong> ${escapeHtml(d.bullets.academic_bg)}</li>
-                <li><strong>Professional Background:</strong> ${escapeHtml(d.bullets.professional_bg)}</li>
-                <li><strong>Background in Web/Programming:</strong> ${escapeHtml(d.bullets.web_bg)}</li>
-                <li><strong>Primary Computer Platform:</strong> ${escapeHtml(d.bullets.platform)}</li>
-                <li><strong>Courses (overview):</strong> ${escapeHtml(d.bullets.courses_overview)}</li>
-                <li><strong>Something Interesting:</strong> ${escapeHtml(d.bullets.interesting)}</li>
+                <li><strong>Personal Background:</strong> ${escapeHtml(
+                  d.bullets.personal_bg
+                )}</li>
+                <li><strong>Academic Background:</strong> ${escapeHtml(
+                  d.bullets.academic_bg
+                )}</li>
+                <li><strong>Professional Background:</strong> ${escapeHtml(
+                  d.bullets.professional_bg
+                )}</li>
+                <li><strong>Background in Web/Programming:</strong> ${escapeHtml(
+                  d.bullets.web_bg
+                )}</li>
+                <li><strong>Primary Computer Platform:</strong> ${escapeHtml(
+                  d.bullets.platform
+                )}</li>
+                <li><strong>Courses (overview):</strong> ${escapeHtml(
+                  d.bullets.courses_overview
+                )}</li>
+                <li><strong>Something Interesting:</strong> ${escapeHtml(
+                  d.bullets.interesting
+                )}</li>
               </ul>
   
               ${
@@ -241,7 +332,9 @@
                 <cite>— ${escapeHtml(d.quoteAuthor)}</cite>
               </blockquote>
   
-              <p><em>${escapeHtml(d.ackStmt)}</em> <span class="muted">(${escapeHtml(d.ackDate)})</span></p>
+              <p><em>${escapeHtml(d.ackStmt)}</em> <span class="muted">(${escapeHtml(
+        d.ackDate
+      )})</span></p>
   
               ${d.funny ? `<p><strong>Funny thing:</strong> ${escapeHtml(d.funny)}</p>` : ""}
               ${d.share ? `<p><strong>Something I’d like to share:</strong> ${escapeHtml(d.share)}</p>` : ""}
