@@ -3,6 +3,20 @@
 (function () {
     const form = document.getElementById("intro-form");
     if (!form) return;
+
+    // Fallback for browsers without <input type="date"> support
+const ackDate = form.querySelector('input[name="ack_date"]');
+const supportsDate = (() => {
+  const i = document.createElement('input');
+  i.setAttribute('type', 'date');
+  return i.type === 'date';
+})();
+if (!supportsDate && ackDate) {
+  ackDate.type = 'text';
+  ackDate.placeholder = 'YYYY-MM-DD';
+  ackDate.pattern = '\\d{4}-\\d{2}-\\d{2}';
+}
+
   
     // ---------- Image preview wiring ----------
     // Prefer an element with id="picture_url" (recommended); else fall back to name="picture_url"
@@ -121,7 +135,7 @@
     });
   
     // ---------- Clear button (custom type='clear') ----------
-    const clearBtn = form.querySelector("button[type='clear']");
+    const clearBtn = document.getElementById("clear-form");
     if (clearBtn) {
       clearBtn.addEventListener("click", function () {
         const inputs = Array.from(form.querySelectorAll("input, textarea"));
