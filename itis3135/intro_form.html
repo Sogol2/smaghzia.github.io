@@ -224,5 +224,17 @@
   <script src="./scripts/introduction.js" defer></script>
 
 
+  <script>
+    (function initIncludes(){
+      var slots = document.querySelectorAll('[data-include]');
+      Array.prototype.forEach.call(slots, function (el) {
+        var url = el.getAttribute('data-include'); if (!url) return;
+        fetch(url).then(function(r){return r.text();})
+                  .then(function(html){ el.innerHTML = html; })
+                  .catch(function(e){ console.warn('Include failed:', url, e); });
+      });
+    })();
+  </script>
+  
 </body>
 </html>
