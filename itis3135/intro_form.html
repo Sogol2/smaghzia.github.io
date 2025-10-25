@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Introduction Form</title>
+
+  <!-- Your site styles -->
+  <link rel="stylesheet" href="./styles/site.css">
+  <link rel="stylesheet" href="./styles/page.css">
+
+  <!-- Minimal page styles -->
+  <style>
+    main { max-width: 1100px; margin: 0 auto; padding: 1rem; }
+    h2 { margin-top: 0.5rem; }
+    form fieldset{border:1px solid var(--line,#ddd);padding:1rem;margin:1rem 0;border-radius:12px}
+    form legend{font-weight:600}
+    form label{display:block;margin:.5rem 0}
+    form input, form textarea, form select{width:100%;padding:.5rem;border:1px solid var(--line,#ddd);border-radius:10px}
+    .course-row{display:grid;gap:.5rem;grid-template-columns:repeat(4, minmax(0,1fr)) auto;margin:.5rem 0}
+    #add-course,.remove-course{margin-top:.25rem}
+    .form-actions{display:flex;gap:.75rem;align-items:center}
+    .links label{margin-bottom:.5rem}
+    .help{color:var(--muted,#5f6368);font-size:.9rem}
+    @media (max-width:720px){.course-row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <!-- Header loaded by your include system -->
+  <header id="site-header" data-include="components/header.html"></header>
+
+  <main id="content">
+    <h2>Introduction Form</h2>
+    <h3>Please submit the form below.</h3>
+
+    <!-- Full form -->
+    <form id="intro-form" novalidate>
+      <!-- Identity -->
+      <fieldset>
+        <legend>Identity</legend>
+        <label>
+          First Name *
+          <input type="text" name="first_name" required value="Sogol" placeholder="e.g., Sogol" />
+        </label>
+        <label>
+          Middle Name / Initial (optional)
+          <input type="text" name="middle_name" placeholder="e.g., A." />
+        </label>
+        <label>
+          Nickname / Preferred (optional)
+          <input type="text" name="nickname" value="Sunny" placeholder="e.g., Sunny" />
+        </label>
+        <label>
+          Last Name *
+          <input type="text" name="last_name" required value="Maghzian" placeholder="e.g., Maghzian" />
+        </label>
+      </fieldset>
+
+      <!-- Acknowledgment -->
+      <fieldset>
+        <legend>Acknowledgment</legend>
+        <label>
+          Acknowledgment Statement *
+          <input type="text" name="ack_statement" required
+                 value="I confirm this information is accurate and follows the honor code."
+                 placeholder="Write your acknowledgment sentence" />
+        </label>
+        <label>
+          Acknowledgment Date *
+          <input type="date" name="ack_date" required value="2025-10-25" />
+        </label>
+      </fieldset>
+
+      <!-- Mascot -->
+      <fieldset>
+        <legend>Mascot</legend>
+        <label>
+          Mascot Adjective *
+          <input type="text" name="mascot_adj" required value="Sunny" placeholder="e.g., Mighty, Sunny, Swift" />
+        </label>
+        <label>
+          Mascot Animal *
+          <input type="text" name="mascot_animal" required value="Macaw" placeholder="e.g., Hare, Macaw, Nighthawk" />
+        </label>
+        <label>
+          Divider *
+          <input type="text" name="divider" required value="||" placeholder="e.g., ~  |  ♥  ||" />
+        </label>
+      </fieldset>
+
+      <!-- Picture -->
+      <fieldset>
+        <legend>Picture</legend>
+        <p class="help">Defaults to your current intro image. Users can upload a different one.</p>
+        <label>
+          Image URL (defaults to your image) *
+          <input type="url" name="picture_url" required
+                 value="./images/intro/sogol.jpg" placeholder="https://example.com/me.jpg" />
+        </label>
+        <label>
+          Or upload an image (optional)
+          <input type="file" name="picture_file" accept="image/*" />
+        </label>
+        <label>
+          Picture Caption *
+          <input type="text" name="picture_caption" required
+                 value="Sogol at UNC Charlotte" placeholder="Short caption under your image" />
+        </label>
+
+        <figure style="margin-top:.5rem;">
+          <img id="picture-preview" src="./images/intro/sogol.jpg" alt="Preview"
+               style="max-width:240px;height:auto;border:1px solid #ddd;padding:4px;border-radius:8px;">
+          <figcaption id="picture-preview-caption">Sogol at UNC Charlotte</figcaption>
+        </figure>
+      </fieldset>
+
+      <!-- Personal Statement -->
+      <fieldset>
+        <legend>Personal Statement</legend>
+        <textarea name="personal_statement" rows="3" required
+                  placeholder="A short intro in 1–3 sentences.">Busy vibes. Better focus.</textarea>
+      </fieldset>
+
+      <!-- Seven Main Bullets -->
+      <fieldset>
+        <legend>Seven Main Bullets</legend>
+
+        <label>Personal Background *
+          <textarea name="bullet_personal_bg" rows="2" required
+                    placeholder="Where you're from, languages, etc."></textarea>
+        </label>
+
+        <label>Academic Background *
+          <textarea name="bullet_academic_bg" rows="2" required
+                    placeholder="Major, concentration, minors, year, school."></textarea>
+        </label>
+
+        <label>Professional Background *
+          <textarea name="bullet_professional_bg" rows="2" required
+                    placeholder="Work/internships, roles, responsibilities."></textarea>
+        </label>
+
+        <label>Background in Web/Programming *
+          <textarea name="bullet_web_bg" rows="2" required
+                    placeholder="Prior courses, projects, tools."></textarea>
+        </label>
+
+        <label>Primary Computer Platform *
+          <textarea name="bullet_platform" rows="2" required
+                    placeholder="Windows/macOS/Linux + specs if you want."></textarea>
+        </label>
+
+        <label>Courses You’re Taking & Why *
+          <textarea name="bullet_courses_overview" rows="2" required
+                    placeholder="Tie to goals, skills, career."></textarea>
+        </label>
+
+        <label>Something Interesting About You *
+          <textarea name="bullet_interesting" rows="2" required
+                    placeholder="Hobbies, fun fact, passion, etc."></textarea>
+        </label>
+      </fieldset>
+
+      <!-- Courses -->
+      <fieldset>
+        <legend>Courses (with reasons)</legend>
+        <div id="courses">
+          <div class="course-row">
+            <label>Dept * <input type="text" name="course_dept[]" required value="ITIS" placeholder="e.g., ITIS"></label>
+            <label>No. *   <input type="text" name="course_num[]"  required value="3135" placeholder="e.g., 3135"></label>
+            <label>Name *  <input type="text" name="course_name[]" required value="Web App Dev" placeholder="Course title"></label>
+            <label>Reason *<input type="text" name="course_reason[]" required value="Core for front-end skills and portfolio." placeholder="Why you're taking it"></label>
+            <button type="button" class="remove-course" aria-label="Remove course">Remove</button>
+          </div>
+        </div>
+        <button type="button" id="add-course">+ Add another course</button>
+      </fieldset>
+
+      <!-- Quote -->
+      <fieldset>
+        <legend>Quote</legend>
+        <label>
+          Favorite Quote *
+          <input type="text" name="quote" required value="Stay curious." placeholder="Your favorite quote" />
+        </label>
+        <label>
+          Quote Author *
+          <input type="text" name="quote_author" required value="Unknown" placeholder="Who said it?" />
+        </label>
+      </fieldset>
+
+      <!-- Optional -->
+      <fieldset>
+        <legend>Optional Extras</legend>
+        <label>
+          Funny thing (optional)
+          <input type="text" name="funny" placeholder="A short, lighthearted line" />
+        </label>
+        <label>
+          Something I’d like to share (optional)
+          <textarea name="share" rows="2" placeholder="Anything else you want to include"></textarea>
+        </label>
+      </fieldset>
+
+      <!-- CONTROL BUTTONS -->
+      <div class="form-actions">
+        <button type="submit">Submit</button>
+        <button type="reset" id="reset-form">Reset</button>
+        <button type="clear">Clear</button>
+      </div>
+    </form>
+  </main>
+
+  <!-- Footer loaded by your include system -->
+  <footer id="site-footer" data-include="components/footer.html"></footer>
+
+  <!-- Include loader -->
+  <script src="./scripts/includes.js"></script>
+  <!-- Page logic for the form -->
+  <script src="./scripts/introduction.js" defer></script>
+
+  <!-- Fallback minimal include loader (only runs if your includes.js doesn't exist) -->
+  <script>
+    (function initIncludes(){
+      if (!document.querySelector("[data-include]")) return;
+      const slots = document.querySelectorAll("[data-include]");
+      slots.forEach(async el => {
+        if (el.innerHTML.trim()) return;
+        const url = el.getAttribute("data-include");
+        if (!url) return;
+        try {
+          const res = await fetch(url);
+          el.innerHTML = await res.text();
+        } catch(e) { console.warn("Include failed:", url, e); }
+      });
+    })();
+  </script>
+</body>
+</html>
