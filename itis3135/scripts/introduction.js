@@ -87,12 +87,31 @@ if (!supportsDate && ackDate) {
       pictureUrl.required = !(pictureFile && pictureFile.files && pictureFile.files.length > 0);
     }
   
-    pictureUrl?.addEventListener("input", updatePreviewFromURL);
-    pictureFile?.addEventListener("change", () => {
-      updatePreviewFromFile();
-      syncPictureRequirements();
-    });
-    pictureCaption?.addEventListener("input", updateCaption);
+    function updatePreviewFromFile() {
+        // NO optional chaining here
+        const f = pictureFile && pictureFile.files && pictureFile.files[0];
+        if (!f) return;
+      
+        const reader = new FileReader();
+        reader.onload = function () {
+          uploadedDataUrl = reader.result;   // persist uploaded image
+          pictureImg.src = uploadedDataUrl;  // preview uploaded image
+          // If a file is chosen, URL field is no longer required
+          syncPictureRequirements();
+          if (pictureUrl) pictureUrl.setCustomValidity("");
+        };
+        reader.readAsDataURL(f);
+      }      
+      if (pictureFile) pictureFile.addEventListener("change", function () {
+        updatePreviewFromFile();
+        syncPictureRequirements();
+      });
+      if (pictureFile) pictureFile.addEventListener("change", function () {
+        updatePreviewFromFile();
+        syncPictureRequirements();
+      });
+      
+      if (pictureCaption) pictureCaption.addEventListener("input", updateCaption);
   
     // Initial paint
     updatePreviewFromURL();
@@ -116,27 +135,28 @@ if (!supportsDate && ackDate) {
       return row;
     }
   
-    addCourseBtn?.addEventListener("click", () => {
-      coursesWrap.appendChild(makeCourseRow());
-    });
-  
-    coursesWrap?.addEventListener("click", (e) => {
-      if (e.target.closest(".remove-course")) {
-        e.target.closest(".course-row")?.remove();
-      }
-    });
+    if (addCourseBtn) addCourseBtn.addEventListener("click", function () {
+        coursesWrap.appendChild(makeCourseRow());
+      });
+      
+    if (coursesWrap) coursesWrap.addEventListener("click", function (e) {
+        const btn = e.target && e.target.closest ? e.target.closest(".remove-course") : null;
+        if (btn) {
+          const row = btn.closest ? btn.closest(".course-row") : null;
+          if (row) row.remove();
+        }
+      });
   
     // ---------- Reset button (native reset + preview restore) ----------
     const resetBtn = document.getElementById("reset-form");
-    resetBtn?.addEventListener("click", () => {
-      // native reset will run first; queue UI fixes after values reset
-      setTimeout(() => {
-        uploadedDataUrl = null;
-        updatePreviewFromURL();
-        updateCaption();
-        syncPictureRequirements();
-      }, 0);
-    });
+    if (resetBtn) resetBtn.addEventListener("click", function () {
+        setTimeout(function () {
+          uploadedDataUrl = null;
+          updatePreviewFromURL();
+          updateCaption();
+          syncPictureRequirements();
+        }, 0);
+      });
   
     // ---------- Clear button (custom type='clear') ----------
     const clearBtn = document.getElementById("clear-form");
