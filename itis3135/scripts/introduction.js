@@ -91,7 +91,7 @@
       });
     }
   
-    // ---------- Submit flow (define BEFORE use to satisfy linter) ----------
+   
     function collectFormData(formEl) {
       var fd = new FormData(formEl);
   
@@ -322,7 +322,7 @@
       });
     }
   
-    // Submit listener last (functions already defined above)
+    // Submit listener last 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       handleSubmit();
