@@ -4,8 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FCC Full Stack JavaScript Outline</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <style>
+
+  <link rel="stylesheet" href="styles/default.css">
+
+<style>
     :root{
       --maxw: 1100px;
       --pad: 1rem;
@@ -92,9 +94,8 @@
 <body>
 
   <header>
-    <div data-include="/smaghzia/itis3135/components/header.html"></div>
+    <div data-include="components/header.html"></div>
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
-
   </header>
 
   <main>
@@ -121,35 +122,36 @@
                     <th scope="col">Section Title</th>
                     <th scope="col">Steps</th>
                     <th scope="col">Est. Time</th>
-                    <th scope="col">Notes / Status</th>
+                    <th scope="col">Description</th>
                   </tr>
                 </thead>
               
                 <tbody>
-                  <tr><th scope="row">1</th><td>Code Editors</td><td>5</td><td>~0.5 hr</td><td><span class="tag ok">Done</span> Intro setup</td></tr>
-                  <tr><th scope="row">2</th><td>Variables and Strings</td><td>62</td><td>~3 hr</td><td><span class="tag todo">In progress</span></td></tr>
-                  <tr><th scope="row">3</th><td>Booleans and Numbers</td><td>37</td><td>~2 hr</td><td><span class="tag todo">Next up</span></td></tr>
-                  <tr><th scope="row">4</th><td>Functions</td><td>38</td><td>~2 hr</td><td><span class="tag tbd">Pending</span></td></tr>
-                  <tr><th scope="row">5</th><td>Arrays</td><td>35</td><td>~2 hr</td><td><span class="tag tbd">Pending</span></td></tr>
-                  <tr><th scope="row">6</th><td>Objects</td><td>28</td><td>~1.5 hr</td><td><span class="tag tbd">Pending</span></td></tr>
-                  <tr><th scope="row">7</th><td>Loops</td><td>22</td><td>~1.5 hr</td><td><span class="tag tbd">Pending</span></td></tr>
-                  <tr><th scope="row">8</th><td>JavaScript Fundamentals Review</td><td>30</td><td>~2 hr</td><td><span class="tag tbd">Checkpoint</span></td></tr>
-                  <tr><th scope="row">9</th><td>Higher Order Functions and Callbacks</td><td>37</td><td>~3 hr</td><td><span class="tag tbd">Pending</span></td></tr>
-                  <tr><th scope="row">10</th><td>DOM Manipulation and Events</td><td>87</td><td>~5 hr</td><td><span class="tag tbd">Major module</span></td></tr>
-                  <tr><th scope="row">11</th><td>JavaScript and Accessibility</td><td>42</td><td>~2 hr</td><td><span class="tag tbd">Pending</span></td></tr>
-                  <tr><th scope="row">12</th><td>Debugging</td><td>8</td><td>~0.5 hr</td><td><span class="tag tbd">Quick utility</span></td></tr>
-                  <tr><th scope="row">13</th><td>Basic Regex</td><td>47</td><td>~3 hr</td><td><span class="tag tbd">Pattern matching</span></td></tr>
-                  <tr><th scope="row">14</th><td>Form Validation</td><td>103</td><td>~6 hr</td><td><span class="tag tbd">Longest section</span></td></tr>
-                  <tr><th scope="row">15</th><td>Dates</td><td>5</td><td>~0.5 hr</td><td><span class="tag tbd">Brief</span></td></tr>
-                  <tr><th scope="row">16</th><td>Audio and Video Events</td><td>55</td><td>~3 hr</td><td><span class="tag tbd">Multimedia</span></td></tr>
-                  <tr><th scope="row">17</th><td>Maps and Sets</td><td>37</td><td>~2 hr</td><td><span class="tag tbd">New structures</span></td></tr>
-                  <tr><th scope="row">18</th><td>localStorage and CRUD Operations</td><td>78</td><td>~4 hr</td><td><span class="tag tbd">Persistent data</span></td></tr>
-                  <tr><th scope="row">19</th><td>Classes</td><td>68</td><td>~3 hr</td><td><span class="tag tbd">OOP fundamentals</span></td></tr>
-                  <tr><th scope="row">20</th><td>Recursion</td><td>112</td><td>~6 hr</td><td><span class="tag tbd">Advanced logic</span></td></tr>
-                  <tr><th scope="row">21</th><td>Functional Programming</td><td>23</td><td>~2 hr</td><td><span class="tag tbd">map/filter/reduce</span></td></tr>
-                  <tr><th scope="row">22</th><td>Asynchronous JavaScript</td><td>36</td><td>~2 hr</td><td><span class="tag tbd">async/await</span></td></tr>
-                  <tr><th scope="row">23</th><td>JavaScript Review</td><td>—</td><td>~1 hr</td><td><span class="tag tbd">Final recap</span></td></tr>
+                  <tr><th scope="row">1</th><td>Code Editors</td><td>5</td><td>~0.5 hr</td><td><span class="tag ok">Done</span> Install VS Code (or editor of choice), learn layout, and configure basic settings/extensions to write and run JS comfortably.</td></tr>
+                  <tr><th scope="row">2</th><td>Variables and Strings</td><td>62</td><td>~3 hr</td><td><span class="tag todo">In progress</span> Declare and reassign variables, practice string concatenation/template literals, and handle user input/output cleanly.</td></tr>
+                  <tr><th scope="row">3</th><td>Booleans and Numbers</td><td>37</td><td>~2 hr</td><td>Work with boolean logic and numeric operations, including rounding and common math helpers, to control simple program flow.</td></tr>
+                  <tr><th scope="row">4</th><td>Functions</td><td>38</td><td>~2 hr</td><td>Define reusable blocks with parameters and returns. Compare function declarations, expressions, and arrow functions.</td></tr>
+                  <tr><th scope="row">5</th><td>Arrays</td><td>35</td><td>~2 hr</td><td>Create and traverse arrays; use push/pop, slice/splice, and basic transforms to manage ordered collections.</td></tr>
+                  <tr><th scope="row">6</th><td>Objects</td><td>28</td><td>~1.5 hr</td><td>Model real-world data with key–value pairs, access nested properties, and add/remove fields safely.</td></tr>
+                  <tr><th scope="row">7</th><td>Loops</td><td>22</td><td>~1.5 hr</td><td>Iterate with for/while and for…of. Emphasize readability and off-by-one safety with clear loop bounds.</td></tr>
+                  <tr><th scope="row">8</th><td>JavaScript Fundamentals Review</td><td>30</td><td>~2 hr</td><td>Checkpoint to reinforce primitives, operators, control flow, and data structures through short drills.</td></tr>
+                  <tr><th scope="row">9</th><td>Higher Order Functions and Callbacks</td><td>37</td><td>~3 hr</td><td>Use functions as values, pass callbacks, and understand map/filter/reduce at a conceptual level.</td></tr>
+                  <tr><th scope="row">10</th><td>DOM Manipulation and Events</td><td>87</td><td>~5 hr</td><td>Query, create, and update DOM nodes; wire events for interactive UI (click, input, submit) with accessible patterns.</td></tr>
+                  <tr><th scope="row">11</th><td>JavaScript and Accessibility</td><td>42</td><td>~2 hr</td><td>Add ARIA where appropriate, manage focus, and ensure dynamic content is usable by keyboard and screen readers.</td></tr>
+                  <tr><th scope="row">12</th><td>Debugging</td><td>8</td><td>~0.5 hr</td><td>Use DevTools breakpoints, watch expressions, and stack traces to isolate and fix defects quickly.</td></tr>
+                  <tr><th scope="row">13</th><td>Basic Regex</td><td>47</td><td>~3 hr</td><td>Write simple patterns for matching/validating strings (anchors, character classes, groups) without over-complicating.</td></tr>
+                  <tr><th scope="row">14</th><td>Form Validation</td><td>103</td><td>~6 hr</td><td>Leverage native constraints and custom validators to provide clear, accessible error messaging and prevent bad submits.</td></tr>
+                  <tr><th scope="row">15</th><td>Dates</td><td>5</td><td>~0.5 hr</td><td>Parse and format dates, handle simple time math, and avoid locale pitfalls for user-facing UI.</td></tr>
+                  <tr><th scope="row">16</th><td>Audio and Video Events</td><td>55</td><td>~3 hr</td><td>Control media elements via JS, listen for playback events, and build lightweight custom controls.</td></tr>
+                  <tr><th scope="row">17</th><td>Maps and Sets</td><td>37</td><td>~2 hr</td><td>Use Map/Set for fast lookups and deduplication when object/array semantics aren’t ideal.</td></tr>
+                  <tr><th scope="row">18</th><td>localStorage and CRUD Operations</td><td>78</td><td>~4 hr</td><td>Persist small datasets in the browser; build create/read/update/delete flows with defensive parsing and syncing.</td></tr>
+                  <tr><th scope="row">19</th><td>Classes</td><td>68</td><td>~3 hr</td><td>Organize code with class syntax, constructors, and methods; discuss when simple objects are still better.</td></tr>
+                  <tr><th scope="row">20</th><td>Recursion</td><td>112</td><td>~6 hr</td><td>Solve divide-and-conquer problems safely with clear base cases and guarded depth to avoid stack issues.</td></tr>
+                  <tr><th scope="row">21</th><td>Functional Programming</td><td>23</td><td>~2 hr</td><td>Practice pure functions and immutability; compose small utilities to transform data predictably.</td></tr>
+                  <tr><th scope="row">22</th><td>Asynchronous JavaScript</td><td>36</td><td>~2 hr</td><td>Understand the event loop; use Promises and async/await for readable network and timer code.</td></tr>
+                  <tr><th scope="row">23</th><td>JavaScript Review</td><td>—</td><td>~1 hr</td><td>Summarize key concepts, close gaps, and prepare a tiny capstone that touches DOM + async.</td></tr>
                 </tbody>
+      
               
                 <tfoot>
                   <tr>
@@ -210,11 +212,11 @@
   </main>
 
   <footer>
-    <div data-include="/smaghzia/itis3135/components/footer.html"></div>
+    <div data-include="components/footer.html"></div>
     
     
   </footer>
-  <script src="/smaghzia/itis3135/scripts/HTMLInclude.min.js"></script>
+  <script src="scripts/HTMLInclude.min.js"></script>
 <script>
   try {
     if (window.HTMLInclude) { window.HTMLInclude(); }
