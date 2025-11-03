@@ -3,8 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project Overview — C++ Basics Learning Site</title>
-
+  <title>Project Overview — Student Wellness / Fitness Site</title>
 
 <style>
 :root{
@@ -13,7 +12,7 @@
     --ink: #1a1a1a;
     --muted: #5f6368;
     --line: #e6e6e3;
-    --bg: #fafafa;
+    --bg: hsl(40, 75%, 86%);
     --radius: 14px;
     --brand: #0a5fff;
   }
@@ -59,7 +58,7 @@
   
   /* Sections & lists */
   section{
-    background: #fff;
+    background: #fef4e0d1;
     border: 1px solid var(--line);
     border-radius: var(--radius);
     padding: var(--pad);
@@ -101,20 +100,23 @@
   </head>
 <body>
 
-    <header id="site-header" data-include="components/header.html"> 
-        <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
-      </header>
+  <header id="site-header" data-include="components/header.html"> 
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+  </header>
 
   <main>
-    <h2>Project Overview <span class="muted">/ C++ Basics Learning Site</span></h2>
+    <h2>Project Overview <span class="muted"></span></h2>
+    <p><strong>Project Name:</strong> Student Wellness & Fitness Site</p>
+
     <p class="muted">Interactive Web Application Requirements &amp; Design Document</p>
+
     <!-- ================= Project Overview ================= -->
     <section id="project-overview">
       <h2>Project Overview</h2>
       <ol>
-        <li><strong>Purpose (What the application is & why):</strong> A beginner-friendly website that teaches the fundamentals of <strong>C++</strong> through short lessons, interactive (client-side) code walkthroughs, small challenges, and self-check quizzes. It guides absolute beginners from “Hello, World!” to variables, control flow, functions, and classes.</li>
-        <li><strong>Intended Users:</strong> My Client.</li>
-        <li><strong>Overview of the Website Content:</strong> Curriculum overview; lesson pages with examples; a <em>Playground</em> that shows how C++ code works using step-through animations and precomputed outputs, and, quizzes with instant feedback.</li>
+        <li><strong>Purpose (What the application is & why):</strong> A beginner-friendly wellness website led by a UNC Charlotte student to share short weekly challenges, simple workout routines (5–15 minutes), campus fitness resources, and meet-up info. The goal is to make fitness approachable for busy students and encourage participation through small, consistent actions.</li>
+        <li><strong>Intended Users:</strong> UNC Charlotte students (beginner to intermediate), friends/classmates interested in quick routines.</li>
+        <li><strong>Overview of the Website Content:</strong> Weekly challenges with checklists and progress badges; events/meet-ups with RSVP; a resource hub for campus facilities/classes; and a Contact/Join form with basic validation.</li>
       </ol>
     </section>
 
@@ -123,9 +125,9 @@
       <h2>Client Information</h2>
       <ol>
         <li><strong>Name of Client:</strong> Bita Ghaffari</li>
-        <li><strong>Organization/Institute:</strong> <em>UNCC (STUDENT) </em></li>
+        <li><strong>Organization/Institute:</strong> <em>UNC Charlotte (Student)</em></li>
         <li><strong>Client Email:</strong> <em>bghaffar@charlotte.edu</em></li>
-        <li><strong>Client Phone (optional):</strong> <em>[private]</em> </li>
+        <li><strong>Client Phone (optional):</strong> <em>[private]</em></li>
       </ol>
     </section>
 
@@ -134,19 +136,17 @@
       <h2>Wireframe &amp; Site Map</h2>
       <div class="media-grid">
         <figure>
-          <!-- Replace with your exported draw.io image -->
-          <img class="responsive" src="images/wireframe.png" alt="Default layout wireframe: header, nav, hero, content, footer." />
+          <img class="responsive" src="images/wireframe_fitness.png" alt="Default layout wireframe: header, nav, hero, content cards, footer." />
           <figcaption>
             Wireframe created in draw.io.
-            <a href="https://drive.google.com/file/d/11AgmDP54jhrmL4Uw0y_g3hlr675zmcsz/view?usp=sharing" target="_blank" rel="noopener">Open editable version</a>
+            <a href="https://drive.google.com/file/d/1mOc8X8ag08qYM0CPrB-uGQUg6-KktJOm/view?usp=sharing" target="_blank" rel="noopener">Open editable version</a>
           </figcaption>
         </figure>
         <figure>
-          <!-- Replace with your exported draw.io image -->
-          <img class="responsive" src="images/sitemap.png" alt="Site map for the C++ learning site." />
+          <img class="responsive" src="images/sitemap_fitness.png" alt="Site map for the student wellness site." />
           <figcaption>
             Site map created in draw.io.
-            <a href="https://drive.google.com/file/d/1Kf-kmciNvUSuBEppu8G6ET8wEAMals6k/view?usp=sharing" target="_blank" rel="noopener">Open editable version</a>
+            <a href="https://drive.google.com/file/d/1BqL0AimTpwiecF-q0pOsf8sh6wEQ3CK5/view?usp=sharing" target="_blank" rel="noopener">Open editable version</a>
           </figcaption>
         </figure>
       </div>
@@ -158,86 +158,62 @@
 
       <h3>Home (index.html)</h3>
       <ol>
-        <li><strong>Purpose:</strong> Welcome, explain how to use the site, and direct users to the Curriculum/Lessons.</li>
-        <li><strong>Audience:</strong> All visitors.</li>
-        <li><strong>Content:</strong> Hero with “Start Learning C++”; quick links to Curriculum, Lessons, Playground, Quizzes.</li>
+        <li><strong>Purpose:</strong> Welcome users, explain the initiative, and highlight the current week’s challenge.</li>
+        <li><strong>Audience:</strong> All visitors (students, friends/classmates).</li>
+        <li><strong>Content:</strong> Hero with “Join this week’s challenge”; quick links to Challenges, Resources, Events, Contact.</li>
         <li><strong>Enter Data? (Y/N):</strong> No.</li>
         <li><strong>Validation? (Y/N):</strong> No.</li>
-        <li><strong>Buttons/Links/Dropdowns:</strong> Buttons & anchors.</li>
-        <li><strong>Actions:</strong> Smooth-scroll; navigate to Curriculum.</li>
-        <li><strong>Notes:</strong> Keep lightweight for fast loading.</li>
+        <li><strong>Buttons/Links/Dropdowns:</strong> CTA buttons to Challenges and Events.</li>
+        <li><strong>Actions:</strong> Smooth-scroll; navigate to Challenges.</li>
+        <li><strong>Notes:</strong> Keep lightweight and accessible.</li>
       </ol>
 
-      <h3>Curriculum</h3>
+      <h3>Challenges (challenges.html)</h3>
       <ol>
-        <li><strong>Purpose:</strong> Show the learning path (Intro → Variables → I/O → Conditionals → Loops → Functions → Arrays/Vectors → Classes).</li>
-        <li><strong>Audience:</strong> Learners, tutors.</li>
-        <li><strong>Content:</strong> Syllabus cards with time estimates and prerequisites.</li>
-        <li><strong>Enter Data? (Y/N):</strong> No.</li>
+        <li><strong>Purpose:</strong> Provide weekly fitness challenges with simple steps and track progress.</li>
+        <li><strong>Audience:</strong> Students completing routines.</li>
+        <li><strong>Content:</strong> jQuery-UI Accordion or cards per week; checklist items; estimated time; tips.</li>
+        <li><strong>Enter Data? (Y/N):</strong> Yes (checkboxes).</li>
+        <li><strong>Validation? (Y/N):</strong> Yes—require all required steps before “Week Complete.”</li>
+        <li><strong>Buttons/Links/Dropdowns:</strong> “Mark Week Complete” button; optional Beginner/Intermediate tabs.</li>
+        <li><strong>Actions:</strong> Persist progress to <code>localStorage</code>; show badge or small confetti on completion.</li>
+        <li><strong>Notes:</strong> Use ARIA roles and keyboard-friendly focus states.</li>
+      </ol>
+
+      <h3>Resources (resources.html)</h3>
+      <ol>
+        <li><strong>Purpose:</strong> Centralize campus fitness info (UREC classes, track hours, nearby trails, links).</li>
+        <li><strong>Audience:</strong> Anyone needing quick access to resources.</li>
+        <li><strong>Content:</strong> Resource cards with descriptions and external links; optional filter/search input.</li>
+        <li><strong>Enter Data? (Y/N):</strong> Optional (search/filter text).</li>
         <li><strong>Validation? (Y/N):</strong> No.</li>
-        <li><strong>Buttons/Links/Dropdowns:</strong> Links to each lesson section.</li>
-        <li><strong>Actions:</strong> AJAX reads <code>data/curriculum.json</code> to render the list.</li>
-        <li><strong>Notes:</strong> Client-side only.</li>
+        <li><strong>Buttons/Links/Dropdowns:</strong> External links open new tab.</li>
+        <li><strong>Actions:</strong> Client-side filter; render items via AJAX from <code>data/resources.json</code>.</li>
+        <li><strong>Notes:</strong> Use descriptive link text; <code>rel="noopener"</code> for security.</li>
       </ol>
 
-      <h3>Lessons</h3>
+      <h3>Events (events.html)</h3>
       <ol>
-        <li><strong>Purpose:</strong> Deliver C++ lessons with step-through example walkthroughs.</li>
-        <li><strong>Audience:</strong> Learners.</li>
-        <li><strong>Content:</strong> Sections for each topic with code snippets, explanations, and outputs.</li>
-        <li><strong>Enter Data? (Y/N):</strong> No (except small controls for demos).</li>
-        <li><strong>Validation? (Y/N):</strong> No.</li>
-        <li><strong>Buttons/Links/Dropdowns:</strong> Tabs/Accordion to switch topics.</li>
-        <li><strong>Actions:</strong> jQuery-UI Tabs or Accordion; examples pulled from <code>data/snippets.json</code> via AJAX; “Step” button animates highlighted lines and reveals precomputed output.</li>
-        <li><strong>Notes:</strong> We do not compile C++ in the browser; outputs are precomputed and explained.</li>
+        <li><strong>Purpose:</strong> List upcoming meet-ups/workouts and allow simple RSVP.</li>
+        <li><strong>Audience:</strong> Students who plan to attend.</li>
+        <li><strong>Content:</strong> Event cards/table with date, time, location, brief details; datepicker to browse.</li>
+        <li><strong>Enter Data? (Y/N):</strong> Yes (RSVP name/email) — optional if you prefer external signup.</li>
+        <li><strong>Validation? (Y/N):</strong> Yes (required fields and email pattern).</li>
+        <li><strong>Buttons/Links/Dropdowns:</strong> “Add to Calendar” link; RSVP submit.</li>
+        <li><strong>Actions:</strong> AJAX fetch from <code>data/events.json</code>; client-side confirmation toast.</li>
+        <li><strong>Notes:</strong> Graceful empty-state if no events.</li>
       </ol>
 
-      <h3>Playground</h3>
+      <h3>Contact / Join (contact.html)</h3>
       <ol>
-        <li><strong>Purpose:</strong> Let learners paste small C++ snippets and see an <em>illustrated</em> run (line-by-line explanation) and typical output (preloaded).</li>
-        <li><strong>Audience:</strong> Learners.</li>
-        <li><strong>Content:</strong> Textarea for code; preset templates (Hello World, loops, functions); output panel.</li>
-        <li><strong>Enter Data? (Y/N):</strong> Yes (code input).</li>
-        <li><strong>Validation? (Y/N):</strong> Basic checks (non-empty, max length).</li>
-        <li><strong>Buttons/Links/Dropdowns:</strong> Run/Reset buttons; template dropdown.</li>
-        <li><strong>Actions:</strong> Client-side parser highlights tokens; simulated output shown for known patterns or show “Explanation only” if unknown.</li>
-        <li><strong>Notes:</strong> No real compilation; no uploads; nothing is stored.</li>
-      </ol>
-
-      <h3>Quizzes</h3>
-      <ol>
-        <li><strong>Purpose:</strong> Self-check understanding with MCQ/True-False.</li>
-        <li><strong>Audience:</strong> Learners.</li>
-        <li><strong>Content:</strong> Questions on syntax, types, control flow, functions, arrays, classes.</li>
-        <li><strong>Enter Data? (Y/N):</strong> Yes (answers).</li>
-        <li><strong>Validation? (Y/N):</strong> Require a choice before scoring.</li>
-        <li><strong>Buttons/Links/Dropdowns:</strong> Radio buttons; “Check Answers”.</li>
-        <li><strong>Actions:</strong> AJAX loads <code>data/quizzes.json</code>; client-side scoring; show correct/incorrect with explanations.</li>
-        <li><strong>Notes:</strong> Results are not saved (read-only experience).</li>
-      </ol>
-
-      <h3>Resources</h3>
-      <ol>
-        <li><strong>Purpose:</strong> Provide curated C++ references and starter files.</li>
-        <li><strong>Audience:</strong> Learners & tutors.</li>
-        <li><strong>Content:</strong> Links to C++ references, style guides, and practice sites; downloadable templates.</li>
-        <li><strong>Enter Data? (Y/N):</strong> No.</li>
-        <li><strong>Validation? (Y/N):</strong> No.</li>
-        <li><strong>Buttons/Links/Dropdowns:</strong> Filters by topic; external links.</li>
-        <li><strong>Actions:</strong> AJAX reads <code>data/resources.json</code>; open external links in new tab.</li>
-        <li><strong>Notes:</strong> Use <code>rel="noopener"</code> for security.</li>
-      </ol>
-
-      <h3>Contact</h3>
-      <ol>
-        <li><strong>Purpose:</strong> Let learners ask questions or request clarifications.</li>
-        <li><strong>Audience:</strong> Learners.</li>
-        <li><strong>Content:</strong> Form (name, email, topic, message) and office hours note.</li>
+        <li><strong>Purpose:</strong> Let students ask questions or express interest in joining challenges/meet-ups.</li>
+        <li><strong>Audience:</strong> Students.</li>
+        <li><strong>Content:</strong> Form (name, UNCC email, interest, message).</li>
         <li><strong>Enter Data? (Y/N):</strong> Yes.</li>
-        <li><strong>Validation? (Y/N):</strong> Yes (HTML5 patterns + JS).</li>
+        <li><strong>Validation? (Y/N):</strong> Yes (required fields, email pattern, min/max length).</li>
         <li><strong>Buttons/Links/Dropdowns:</strong> Inputs, select, submit.</li>
-        <li><strong>Actions:</strong> Send via mail handler (Formspree/EmailJS); show success/fail notice.</li>
-        <li><strong>Notes:</strong> No PII stored on the site.</li>
+        <li><strong>Actions:</strong> JS validate → send via mail handler (Formspree/EmailJS) or mock POST; show success/failure notice.</li>
+        <li><strong>Notes:</strong> No PII is stored on the site; use client-side only.</li>
       </ol>
     </section>
 
@@ -245,18 +221,21 @@
     <section id="dynamic">
       <h2>Dynamic Functionality (JavaScript / jQuery / AJAX)</h2>
       <ol>
-        <li><strong>Lesson Tabs &amp; Accordion (Lessons):</strong> jQuery-UI Tabs/Accordion to switch topics and keep pages compact.</li>
-        <li><strong>Code Walkthrough (Lessons &amp; Playground):</strong> Step through example C++ snippets; highlight lines and show prepared outputs/explanations loaded from <code>data/snippets.json</code>.</li>
-        <li><strong>Quizzes (Quizzes):</strong> Load questions from <code>data/quizzes.json</code>; instant client-side scoring and feedback.</li>
-        <li><strong>Curriculum/Resources via AJAX:</strong> Render lists from <code>data/curriculum.json</code> and <code>data/resources.json</code> so content is editable without touching HTML.</li>
-        <li><strong>Shared Header/Footer (All pages):</strong> Inject <code>components/header.html</code> and <code>components/footer.html</code> to ensure consistent navigation and validator links.</li>
-            <li><strong>Interactive lessons / code walkthroughs:</strong>
-              <a href="https://www.datacamp.com/search/learn?q=c%2B%2B" target="_blank" rel="noopener">Datacamp – Learn</a>
-              ||
-              <a href="https://www.codecademy.com/learn/learn-c-plus-plus" target="_blank" rel="noopener">Codecademy</a>
-            </li>
+        <li><strong>Challenge Tracker (Challenges):</strong> Checkboxes persist to <code>localStorage</code>; progress badge updates in real time; optional confetti on completion.</li>
+        <li><strong>jQuery-UI Widgets (Challenges &amp; Events):</strong> Accordion for weekly challenges; Datepicker to browse events.</li>
+        <li><strong>Events via AJAX (Events):</strong> Load events from <code>data/events.json</code>; render cards/table; empty-state handling.</li>
+        <li><strong>Resources via AJAX (Resources):</strong> Render resource cards from <code>data/resources.json</code> so updates don’t require HTML edits.</li>
+        <li><strong>Form Validation (Contact):</strong> Custom JS validation with helpful messages and focus management for accessibility.</li>
+        <li><strong>Shared Header/Footer (All pages):</strong> Inject <code>components/header.html</code> and <code>components/footer.html</code> for consistent navigation and validator links.</li>
+            <li><a href="https://www.medicalnewstoday.com/articles/cardio-exercises-at-home" target="_blank" rel="noopener">
+              Cardio exercises at home
+            </a> (reference for designing short cardio challenges)</li>
+            <li><a href="https://fitbod.me/exercises/abs" target="_blank" rel="noopener">
+              Fitbod — exercises library
+            </a> (reference for selecting one movements and cues)</li>
       </ol>
     </section>
+      
 
   </main>
 
