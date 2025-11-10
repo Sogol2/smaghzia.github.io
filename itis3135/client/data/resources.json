@@ -1,0 +1,21 @@
+[
+    {
+      "name": "UNCC UREC Group Fitness",
+      "url": "https://urec.charlotte.edu/group-fitness",
+      "description": "Schedule for yoga, HIIT, strength, and more at University Recreation.",
+      "tags": ["campus", "urec", "class"]
+    },
+    {
+      "name": "Campus Rec Center Hours",
+      "url": "https://urec.charlotte.edu/facility-hours",
+      "description": "Check current facility and pool hours before you go.",
+      "tags": ["hours", "campus"]
+    },
+    {
+      "name": "Nearby Greenway Trails",
+      "url": "https://www.mecknc.gov/ParkandRec/Greenways",
+      "description": "Explore walking and biking greenways around Charlotte.",
+      "tags": ["trail", "outdoors", "walk"]
+    }
+  ]
+  

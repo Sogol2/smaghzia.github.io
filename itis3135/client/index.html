@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home — Weekly Fitness Challenges</title>
+  <link rel="stylesheet" href="styles/site.css" />
+  <script defer src="scripts/main.js"></script>
+</head>
+<body>
+  <div class="backbar">
+    <div class="container">
+      <a class="btn" href="https://webpages.charlotte.edu/smaghzia/itis3135/project_overview.html">← Back to Project Overview</a>
+      <span class="badge">Client Prototype</span>
+    </div>
+  </div>
+  <header class="site-header">
+    <a class="skip-link" href="#main" style="position:absolute;left:-9999px;">Skip to content</a>
+    <div class="container">
+      <nav aria-label="Primary">
+        <div class="brand"><span class="dot" aria-hidden="true"></span><span>Weekly Fitness</span></div>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="challenges.html">Challenges</a>
+          <a href="resources.html">Resources</a>
+          <a href="events.html">Events</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </nav>
+    </div>
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+  </header>
+
+  <main id="main" class="container">
+    <section class="hero" aria-labelledby="join">
+      <div class="card">
+        <h1 id="join">Join this week’s challenge</h1>
+        <p class="muted">Short, simple routines you can do anywhere. Track progress, explore resources, and meet up for events.</p>
+        <p>
+          <a class="btn primary" href="challenges.html">Start Challenges</a>
+          <a class="btn" href="events.html">See Events</a>
+        </p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop"
+           alt="Students doing a group workout outdoors" loading="lazy" />
+    </section>
+
+    <section style="margin-top:2rem">
+      <h2>Quick Links</h2>
+      <div class="grid-3">
+        <article class="card"><h3>Challenges</h3><p class="muted">Weekly checklists with tips.</p><p><a class="btn" href="challenges.html">Go</a></p></article>
+        <article class="card"><h3>Resources</h3><p class="muted">UREC, trails, classes.</p><p><a class="btn" href="resources.html">Go</a></p></article>
+        <article class="card"><h3>Events</h3><p class="muted">Meet-ups & workouts.</p><p><a class="btn" href="events.html">Go</a></p></article>
+      </div>
+    </section>
+
+    <section style="margin-top:2rem">
+        <h2>What is Weekly Fitness?</h2>
+        <div class="card">
+          <iframe width="100%" height="360"
+                  src="https://www.youtube.com/watch?v=5iHQDUvR_vc"
+                  title="Intro video" loading="lazy" allowfullscreen></iframe>
+        </div>
+      </section>
+      
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <small>&copy; <span id="y"></span> Weekly Fitness Challenges</small>
+      <div class="badges">
+        <a target="_blank" rel="noopener" href="https://validator.w3.org/">HTML Validator</a>
+        <a target="_blank" rel="noopener" href="https://jigsaw.w3.org/css-validator/">CSS Validator</a>
+      </div>
+    </div>
+    <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,27 @@
+[
+    {
+      "id": "evt-001",
+      "title": "Campus Green Warm-up Walk",
+      "date": "2025-11-12",
+      "time": "17:00",
+      "location": "UNC Charlotte — Belk Plaza",
+      "details": "Easy 20-minute walk and stretch. All levels welcome."
+    },
+    {
+      "id": "evt-002",
+      "title": "Beginner Bodyweight Circuit",
+      "date": "2025-11-14",
+      "time": "16:30",
+      "location": "UREC Studio B",
+      "details": "30-minute low-impact strength routine. Bring water."
+    },
+    {
+      "id": "evt-003",
+      "title": "Weekend Greenway Run",
+      "date": "2025-11-16",
+      "time": "09:00",
+      "location": "Mallard Creek Greenway Trailhead",
+      "details": "3k social run; walk/jog pace groups available."
+    }
+  ]
+  

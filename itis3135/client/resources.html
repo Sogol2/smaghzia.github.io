@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resources — Weekly Fitness</title>
+  <link rel="stylesheet" href="styles/site.css" />
+  <script defer src="scripts/main.js"></script>
+  <script defer src="scripts/resources.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav aria-label="Primary">
+        <div class="brand"><span class="dot"></span><span>Weekly Fitness</span></div>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="challenges.html">Challenges</a>
+          <a href="resources.html">Resources</a>
+          <a href="events.html">Events</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </nav>
+    </div>
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+  </header>
+
+  <main id="main" class="container">
+    <img src="https://images.unsplash.com/photo-1518314916381-77a37c2a49ae?w=1600&q=80&auto=format&fit=crop"
+     alt="Gym resources and schedules on a board"
+     style="width:100%;border-radius:16px;border:1px solid var(--line);margin:.5rem 0 1rem;">
+
+    <h1>Resources</h1>
+    <p class="muted">UREC classes, hours, nearby trails, and trusted guides.</p>
+
+    <label for="q">Filter</label>
+    <input id="q" type="search" placeholder="Type to filter (e.g., yoga, trail, UREC)…" aria-describedby="qhelp">
+    <p id="qhelp" class="helper">Filter matches name, tags, and description.</p>
+
+    <section id="resources" class="grid-3" aria-live="polite"></section>
+    <p id="empty" class="muted" style="display:none">No resources match your search.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <small>&copy; <span id="y"></span> Weekly Fitness Challenges</small>
+      <div class="badges">
+        <a target="_blank" rel="noopener" href="https://validator.w3.org/">HTML Validator</a>
+        <a target="_blank" rel="noopener" href="https://jigsaw.w3.org/css-validator/">CSS Validator</a>
+      </div>
+    </div>
+    <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  </footer>
+</body>
+</html>
