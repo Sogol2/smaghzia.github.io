@@ -5,6 +5,12 @@ let allEvents = [];
 
 function toISODate(d) { return d.toISOString().slice(0, 10); }
 
+async function loadJSON(url){
+    const res = await fetch(url, { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    return res.json();
+  }
+  
 function makeICS(ev) {
     // Build minimal ICS text (UTC-style stamp)
     const dt =
