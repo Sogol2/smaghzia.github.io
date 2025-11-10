@@ -29,9 +29,11 @@
   </header>
 
   <main id="main" class="container">
-    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1600&q=80&auto=format&fit=crop"
-     alt="Group workout meetup outdoors"
-     style="width:100%;border-radius:16px;border:1px solid var(--line);margin:.5rem 0 1rem;">
+    <figure class="card" style="margin-top:1rem">
+        <img src="./images/events.png" alt="Events page preview showing meet-ups schedule">
+        <figcaption class="muted">Upcoming events and meet-ups</figcaption>
+      </figure>
+      
 
     <h1>Events</h1>
     <p class="muted">Pick a date to browse meet-ups and workouts. RSVP is optional and stays client-side.</p>
@@ -40,8 +42,18 @@
     <input id="pick" aria-describedby="pickhelp" placeholder="Choose a date" />
     <p id="pickhelp" class="helper">Use the datepicker to jump to a specific day.</p>
 
-    <section id="event-list" class="grid-3" aria-live="polite"></section>
-    <p id="no-events" class="muted" style="display:none">No events on this date.</p>
+    <section id="event-list"
+         class="grid-3"
+         aria-live="polite"
+         aria-labelledby="event-list-h2">
+  <h2 id="event-list-h2" class="sr-only">Events matching the selected date</h2>
+
+  <!-- Shown when no results -->
+  <p id="no-events" class="muted" hidden>No events on this date.</p>
+
+  <!-- Event cards will be injected here -->
+</section>
+
 
     <div class="card" style="margin-top:1rem">
       <h2>RSVP (optional)</h2>
@@ -69,7 +81,6 @@
         <a target="_blank" rel="noopener" href="https://jigsaw.w3.org/css-validator/">CSS Validator</a>
       </div>
     </div>
-    <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
   </footer>
 </body>
 </html>

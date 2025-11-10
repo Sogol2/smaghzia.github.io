@@ -26,9 +26,11 @@
   </header>
 
   <main id="main" class="container">
-    <img src="https://images.unsplash.com/photo-1518314916381-77a37c2a49ae?w=1600&q=80&auto=format&fit=crop"
-     alt="Gym resources and schedules on a board"
-     style="width:100%;border-radius:16px;border:1px solid var(--line);margin:.5rem 0 1rem;">
+    <figure class="card" style="margin-top:1rem">
+        <img src="./images/resources.png" alt="Resources page preview with links and categories">
+        <figcaption class="muted">Resources overview</figcaption>
+      </figure>
+      
 
     <h1>Resources</h1>
     <p class="muted">UREC classes, hours, nearby trails, and trusted guides.</p>
@@ -37,8 +39,18 @@
     <input id="q" type="search" placeholder="Type to filter (e.g., yoga, trail, UREC)…" aria-describedby="qhelp">
     <p id="qhelp" class="helper">Filter matches name, tags, and description.</p>
 
-    <section id="resources" class="grid-3" aria-live="polite"></section>
-    <p id="empty" class="muted" style="display:none">No resources match your search.</p>
+    <section id="resources"
+         class="grid-3"
+         aria-live="polite"
+         aria-labelledby="resources-h2">
+  <h2 id="resources-h2" class="sr-only">Resources matching your filters</h2>
+
+  <!-- empty-state message -->
+  <p id="empty" class="muted" hidden>No resources match your search.</p>
+
+  <!-- resource cards get injected here -->
+</section>
+
   </main>
 
   <footer class="site-footer">
@@ -49,7 +61,6 @@
         <a target="_blank" rel="noopener" href="https://jigsaw.w3.org/css-validator/">CSS Validator</a>
       </div>
     </div>
-    <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
   </footer>
 </body>
 </html>
